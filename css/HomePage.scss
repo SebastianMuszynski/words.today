@@ -1,5 +1,20 @@
 @import 'base';
 
-body {
+header {
+  $header-height: 80px;
+  $header-font-size: 28px;
+
   background: url("../img/bg-diamonds.png");
+  height: $header-height;
+
+  h1 {
+    line-height: $header-height;
+    color: $color-white;
+    font-size: $header-font-size;
+    margin: 0 50px;
+
+    span {
+      color: $color-yellow;
+    }
+  }
 }
