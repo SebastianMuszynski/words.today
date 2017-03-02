@@ -6,6 +6,7 @@ header {
 
   background: url("../img/bg-diamonds.png");
   height: $header-height;
+  box-shadow: 0px 0px 15px $color-black;
 
   h1 {
     line-height: $header-height;
