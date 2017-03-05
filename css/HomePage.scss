@@ -2,20 +2,54 @@
 
 header {
   $header-height: 80px;
-  $header-font-size: 28px;
+  $header-font-size: 20px;
 
-  background: url("../img/bg-diamonds.png");
+  background-color: $color-blue;
   height: $header-height;
-  box-shadow: 0px 0px 15px $color-black;
+  font-size: $header-font-size;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-  h1 {
-    line-height: $header-height;
-    color: $color-white;
-    font-size: $header-font-size;
-    margin: 0 50px;
+  nav {
+    margin-right: 20px;
 
-    span {
-      color: $color-yellow;
+    li {
+      display: inline-block;
+      margin-right: 15px;
+
+      a {
+        background-color: $color-whitish;
+        border-radius: 10px 0;
+        color: $color-brown;
+        padding: 5px 10px;
+        text-decoration: none;
+        transition: .3s all;
+
+        &:hover {
+          border-radius: 0 10px ;
+        }
+      }
+    }
+  }
+}
+
+.HomePage {
+  $height: 250px;
+  $font-size: 24px;
+
+  &__quote {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: $height;
+    background-color: $color-red;
+    color: $color-whitish;
+    font-size: $font-size;
+
+    p {
+      line-height: 2;
     }
   }
 }
