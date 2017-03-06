@@ -1,0 +1,30 @@
+@import 'base';
+
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  h1 {
+    text-align: center;
+    color: $color-black;
+  }
+
+  form {
+    border: 10px solid $color-black;
+    border-top: 10px solid $color-blue;
+    border-bottom: 10px solid $color-blue;
+    background-color: $color-blue;
+    color: $color-whitish;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    input {
+      min-width: 300px;
+      margin: 10px 0;
+    }
+  }
+}

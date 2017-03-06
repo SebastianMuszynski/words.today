@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import HomePage from './HomePage'
-import '../css/HomePage'
+import Login from './Login'
+import '../css/Login'
 
-ReactDOM.render(<HomePage />, document.getElementById('app'))
+ReactDOM.render(<Login />, document.getElementById('app'))
