@@ -1,6 +1,15 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { Router, Route, hashHistory } from 'react-router'
+import Login from './Login'
 import SignUp from './SignUp'
+import HomePage from './HomePage'
 import '../css/HomePage'
 
-ReactDOM.render(<SignUp />, document.getElementById('app'))
+render((
+  <Router history={hashHistory}>
+    <Route path="/" component={HomePage} />
+    <Route path="/login" component={Login} />
+    <Route path="/signup" component={SignUp} />
+  </Router>
+), document.getElementById('app'))

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 const HomePage = React.createClass({
   render () {
@@ -8,8 +9,8 @@ const HomePage = React.createClass({
           <nav>
             <ul>
               <li><a href='#'>About</a></li>
-              <li><a href='#'>Contact</a></li>
-              <li><a href='#'>Sign in</a></li>
+              <li><Link to='/login'>Log in</Link></li>
+              <li><Link to='/signup'>Sign up</Link></li>
             </ul>
           </nav>
         </header>
