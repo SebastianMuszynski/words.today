@@ -1,10 +1,11 @@
 import React from 'react'
 
-const Login = React.createClass({
+const SignUp = React.createClass({
   getInitialState () {
     return {
       email: '',
-      password: ''
+      password: '',
+      password_confirmation: ''
     }
   },
   onEmailChange (event) {
@@ -13,6 +14,9 @@ const Login = React.createClass({
   onPasswordChange (event) {
     this.setState({ password: event.target.password })
   },
+  onPasswordConfirmationChange (event) {
+    this.setState({ password_confirmation: event.target.password_confirmation })
+  },
   handleSubmit (event) {
     event.preventDefault()
   },
@@ -20,7 +24,7 @@ const Login = React.createClass({
     return (
       <div className='actionForm'>
         <div>
-          <h1>Log in</h1>
+          <h1>Sign Up</h1>
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
@@ -34,6 +38,12 @@ const Login = React.createClass({
               value={this.state.password}
               onChange={this.onPasswordChange}
             />
+            <input
+              type="password"
+              placeholder="Password confirmation"
+              value={this.state.password_confirmation}
+              onChange={this.onPasswordConfirmationChange}
+            />
             <input type="submit" value="Submit" />
           </form>
         </div>
@@ -42,4 +52,4 @@ const Login = React.createClass({
   }
 })
 
-export default Login
+export default SignUp

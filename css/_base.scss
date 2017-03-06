@@ -2,6 +2,7 @@
 @import 'mixins';
 @import 'fonts';
 @import 'colors';
+@import 'forms';
 
 $font-family: 'Vollkorn', serif;
 $font-size: 16px;
@@ -35,30 +36,4 @@ h5 {
 h6 {
   font-size: 115%;
   line-height: 1.15;
-}
-
-input {
-  font-family: $font-family;
-  font-size: $font-size;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  color: $color-black;
-
-  &:focus {
-    background-color: $color-whitish-2;
-  }
-}
-
-input[type="submit"] {
-  background: none;
-  background-color: $color-red;
-  color: $color-whitish;
-  cursor: pointer;
-  transition: .3s all;
-
-  &:focus,
-  &:hover {
-    background-color: $color-red-light;
-  }
 }

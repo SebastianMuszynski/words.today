@@ -1,6 +1,33 @@
-@import 'base';
+$font-family: 'Vollkorn', serif;
+$font-size: 16px;
 
-.Login {
+input {
+  font-family: $font-family;
+  font-size: $font-size;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: $color-black;
+
+  &:focus {
+    background-color: $color-whitish-2;
+  }
+}
+
+input[type="submit"] {
+  background: none;
+  background-color: $color-red;
+  color: $color-whitish;
+  cursor: pointer;
+  transition: .3s all;
+
+  &:focus,
+  &:hover {
+    background-color: $color-red-light;
+  }
+}
+
+.actionForm {
   display: flex;
   justify-content: center;
   align-items: center;
