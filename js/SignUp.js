@@ -16,6 +16,7 @@ const SignUp = React.createClass({
   },
   onPasswordConfirmationChange (event) {
     this.setState({ password_confirmation: event.target.password_confirmation })
+    this.refs.submitBtn.disabled = !!(this.state.password !== this.state.password_confirmation)
   },
   handleSubmit (event) {
     event.preventDefault()
@@ -44,7 +45,7 @@ const SignUp = React.createClass({
               value={this.state.password_confirmation}
               onChange={this.onPasswordConfirmationChange}
             />
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" ref='submitBtn' />
           </form>
         </div>
       </div>
