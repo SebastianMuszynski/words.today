@@ -7,11 +7,8 @@ const Login = React.createClass({
       password: ''
     }
   },
-  onEmailChange (event) {
-    this.setState({ email: event.target.email })
-  },
-  onPasswordChange (event) {
-    this.setState({ password: event.target.password })
+  onInputChange (event) {
+    this.setState({ [event.target.name]: event.target.value })
   },
   handleSubmit (event) {
     event.preventDefault()
@@ -23,16 +20,18 @@ const Login = React.createClass({
           <h1>Log in</h1>
           <form onSubmit={this.handleSubmit}>
             <input
+              name="email"
               type="text"
               placeholder="E-mail"
               value={this.state.email}
-              onChange={this.onEmailChange}
+              onChange={this.onInputChange}
             />
             <input
+              name="password"
               type="password"
               placeholder="Password"
               value={this.state.password}
-              onChange={this.onPasswordChange}
+              onChange={this.onInputChange}
             />
             <input type="submit" value="Submit" />
           </form>

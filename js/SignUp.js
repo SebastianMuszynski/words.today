@@ -5,18 +5,15 @@ const SignUp = React.createClass({
     return {
       email: '',
       password: '',
-      password_confirmation: ''
+      passwordConfirmation: ''
     }
   },
-  onEmailChange (event) {
-    this.setState({ email: event.target.email })
-  },
-  onPasswordChange (event) {
-    this.setState({ password: event.target.password })
+  onInputChange (event) {
+    this.setState({ [event.target.name]: event.target.value })
   },
   onPasswordConfirmationChange (event) {
-    this.setState({ password_confirmation: event.target.password_confirmation })
-    this.refs.submitBtn.disabled = !!(this.state.password !== this.state.password_confirmation)
+    this.onInputChange(event)
+    this.refs.submitBtn.disabled = !!(this.state.password !== event.target.value)
   },
   handleSubmit (event) {
     event.preventDefault()
@@ -28,24 +25,27 @@ const SignUp = React.createClass({
           <h1>Sign Up</h1>
           <form onSubmit={this.handleSubmit}>
             <input
+              name="email"
               type="text"
               placeholder="E-mail"
               value={this.state.email}
-              onChange={this.onEmailChange}
+              onChange={this.onInputChange}
             />
             <input
+              name="password"
               type="password"
               placeholder="Password"
               value={this.state.password}
-              onChange={this.onPasswordChange}
+              onChange={this.onInputChange}
             />
             <input
+              name="passwordConfirmation"
               type="password"
               placeholder="Password confirmation"
-              value={this.state.password_confirmation}
+              value={this.state.passwordConfirmation}
               onChange={this.onPasswordConfirmationChange}
             />
-            <input type="submit" value="Submit" ref='submitBtn' />
+            <input type="submit" value="Submit" ref='submitBtn' disabled />
           </form>
         </div>
       </div>
