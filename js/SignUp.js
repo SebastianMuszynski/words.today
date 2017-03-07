@@ -1,8 +1,11 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
+import axios from 'axios'
 
 const SignUp = React.createClass({
   getInitialState () {
     return {
+      username: '',
       email: '',
       password: '',
       passwordConfirmation: ''
@@ -17,6 +20,16 @@ const SignUp = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
+    let payload = {
+      user: {
+        username: this.state.username,
+        email: this.state.email,
+        password: this.state.password
+      }
+    }
+    axios.post('http://localhost:3000/users', payload).then((result) =>
+      browserHistory.push('/')
+    )
   },
   render () {
     return (
@@ -24,6 +37,13 @@ const SignUp = React.createClass({
         <div>
           <h1>Sign Up</h1>
           <form onSubmit={this.handleSubmit}>
+            <input
+              name="username"
+              type="text"
+              placeholder="Username"
+              value={this.state.username}
+              onChange={this.onInputChange}
+            />
             <input
               name="email"
               type="text"
