@@ -1,6 +1,6 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
-import axios from 'axios'
+import Auth from './Auth'
 
 const SignUp = React.createClass({
   getInitialState () {
@@ -27,9 +27,9 @@ const SignUp = React.createClass({
         password: this.state.password
       }
     }
-    axios.post('http://localhost:3000/users', payload).then((result) =>
+    Auth.signup(payload).then((res) => {
       browserHistory.push('/')
-    )
+    })
   },
   render () {
     return (

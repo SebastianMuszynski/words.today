@@ -1,4 +1,6 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
+import Auth from './Auth'
 
 const Login = React.createClass({
   getInitialState () {
@@ -12,6 +14,13 @@ const Login = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
+    const payload = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    Auth.login(payload).then(() => {
+      browserHistory.push('/')
+    })
   },
   render () {
     return (

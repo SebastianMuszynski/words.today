@@ -33,23 +33,3 @@ header {
     }
   }
 }
-
-.HomePage {
-  $height: 250px;
-  $font-size: 24px;
-
-  &__quote {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: $height;
-    background-color: $color-red;
-    color: $color-whitish;
-    font-size: $font-size;
-
-    p {
-      line-height: 2;
-    }
-  }
-}
