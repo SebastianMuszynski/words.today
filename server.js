@@ -11,7 +11,7 @@ module.exports = {
     app.use('/', publicPath)
     app.use('/img', imagesPath)
 
-    app.get('/', function (_, res) {
+    app.get('*', function (_, res) {
       res.sendFile(indexPath)
     })
 
