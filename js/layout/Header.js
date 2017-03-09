@@ -17,14 +17,12 @@ const Header = React.createClass({
     if (this.props.isLoggedIn) {
       return (
         <ul>
-          <li><NavLink to='/about'>About</NavLink></li>
           <li><a href='#' onClick={this.onLogOutClick}>Log out</a></li>
         </ul>
       )
     } else {
       return (
         <ul>
-          <li><NavLink to='/about'>About</NavLink></li>
           <li><NavLink to='/login'>Log in</NavLink></li>
           <li><NavLink to='/signup'>Sign up</NavLink></li>
         </ul>

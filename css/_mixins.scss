@@ -1,3 +1,11 @@
+@mixin background-picture($src) {
+  background: url($src) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 @mixin center-absolute {
   position: absolute;
   top: 50%; left: 50%;

@@ -1,11 +1,10 @@
 .actionForm {
-  display: flex;
-  justify-content: center;
-  margin-top: 150px;
+  @include center-absolute;
+  left: 82%;
 
   h1 {
     text-align: center;
-    color: $color-mine-shaft;
+    color: $color-white;
   }
 
   form {
