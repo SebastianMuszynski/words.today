@@ -35,7 +35,7 @@ const Login = React.createClass({
     return (
       <div className='actionForm'>
         <div>
-          <h1>Log In</h1>
+          <h1>Log in</h1>
           <form onSubmit={this.handleSubmit}>
             <input
               name="email"

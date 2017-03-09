@@ -18,15 +18,15 @@ const Header = React.createClass({
       return (
         <ul>
           <li><a href='#'>About</a></li>
-          <li><a href='#' onClick={this.onLogOutClick}>Log Out</a></li>
+          <li><a href='#' onClick={this.onLogOutClick}>Log out</a></li>
         </ul>
       )
     } else {
       return (
         <ul>
           <li><a href='#'>About</a></li>
-          <li><NavLink to='/login'>Log In</NavLink></li>
-          <li><NavLink to='/signup'>Sign Up</NavLink></li>
+          <li><NavLink to='/login'>Log in</NavLink></li>
+          <li><NavLink to='/signup'>Sign up</NavLink></li>
         </ul>
       )
     }
