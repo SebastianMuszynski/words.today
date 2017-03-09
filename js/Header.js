@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 import Auth from './Auth'
+import '../css/Header'
 
 const Header = React.createClass({
   propTypes: {

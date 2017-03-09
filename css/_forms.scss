@@ -7,17 +7,17 @@ input {
   border: none;
   border-radius: 5px;
   padding: 10px 15px;
-  color: $color-black;
+  color: $color-blue-dianne;
 
   &:focus {
-    background-color: $color-whitish-2;
+    background-color: $color-chilean-heath;
   }
 }
 
 input[type="submit"] {
   background: none;
-  background-color: $color-red;
-  color: $color-whitish;
+  background-color: $color-burnt-sienna;
+  color: $color-white;
   cursor: pointer;
   transition: .3s all;
 
@@ -28,27 +28,27 @@ input[type="submit"] {
 
   &:focus,
   &:not([disabled]):hover {
-    background-color: $color-red-light;
+    background-color: $color-bittersweet;
   }
 }
 
 .actionForm {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin-top: 150px;
 
   h1 {
     text-align: center;
-    color: $color-black;
+    // color: $color-blue-dianne;
+    color: $color-mine-shaft;
   }
 
   form {
-    border: 10px solid $color-black;
-    border-top: 10px solid $color-blue;
-    border-bottom: 10px solid $color-blue;
-    background-color: $color-blue;
-    color: $color-whitish;
+    border: 10px solid $color-blue-dianne;
+    border-top: 10px solid $color-turquoise;
+    border-bottom: 10px solid $color-turquoise;
+    background-color: $color-turquoise;
+    color: $color-white;
     padding: 30px 50px;
     display: flex;
     justify-content: center;

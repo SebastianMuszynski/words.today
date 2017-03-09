@@ -4,7 +4,6 @@ import { Router, Route, browserHistory } from 'react-router'
 import App from './App'
 import Login from './Login'
 import SignUp from './SignUp'
-import '../css/App'
 
 render((
   <Router history={browserHistory}>

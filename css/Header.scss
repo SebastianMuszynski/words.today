@@ -1,15 +1,17 @@
 @import 'base';
 
 header {
-  $header-height: 80px;
-  $header-font-size: 20px;
+  $header-height: 70px;
+  $header-font-size: 16px;
 
-  background-color: $color-blue;
+  background-color: $color-mine-shaft;
   height: $header-height;
-  font-size: $header-font-size;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: $header-font-size;
+  font-weight: 300;
 
   nav {
     margin-right: 20px;
@@ -19,15 +21,13 @@ header {
       margin-right: 15px;
 
       a {
-        background-color: $color-whitish;
-        border-radius: 10px 0;
-        color: $color-brown;
+        color: $color-white;
         padding: 5px 10px;
         text-decoration: none;
         transition: .3s all;
 
         &:hover {
-          border-radius: 0 10px ;
+          color: $color-bright-sun;
         }
       }
     }
