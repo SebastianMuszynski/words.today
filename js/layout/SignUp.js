@@ -5,26 +5,37 @@ import Auth from '../Auth'
 const SignUp = React.createClass({
   getInitialState () {
     return {
-      username: '',
-      email: '',
-      password: '',
-      passwordConfirmation: ''
+      fields: {
+        username: '',
+        email: '',
+        password: '',
+        passwordConfirmation: '',
+      },
+      isFormValid: false
     }
   },
   onInputChange (event) {
-    this.setState({ [event.target.name]: event.target.value })
+    let fields = this.state.fields
+    fields[event.target.name] = event.target.value
+    this.setState({ fields: fields, isFormValid: this.isFormValid() })
   },
-  onPasswordConfirmationChange (event) {
-    this.onInputChange(event)
-    this.refs.submitBtn.disabled = !!(this.state.password !== event.target.value)
+  isFormValid () {
+    return this.areRequiredFieldsFilled() && this.arePasswordsEqual()
+  },
+  areRequiredFieldsFilled () {
+    let fields = this.state.fields
+    return Object.keys(fields).every((key) => !!fields[key])
+  },
+  arePasswordsEqual () {
+    return this.refs.password.value == this.refs.passwordConfirmation.value
   },
   handleSubmit (event) {
     event.preventDefault()
-    let payload = {
+    const payload = {
       user: {
-        username: this.state.username,
-        email: this.state.email,
-        password: this.state.password
+        username: this.state.fields.username,
+        email: this.state.fields.email,
+        password: this.state.fields.password
       }
     }
     Auth.signup(payload).then((res) => {
@@ -53,6 +64,7 @@ const SignUp = React.createClass({
             />
             <input
               name="password"
+              ref="password"
               type="password"
               placeholder="Password"
               value={this.state.password}
@@ -60,12 +72,17 @@ const SignUp = React.createClass({
             />
             <input
               name="passwordConfirmation"
+              ref="passwordConfirmation"
               type="password"
               placeholder="Password confirmation"
               value={this.state.passwordConfirmation}
-              onChange={this.onPasswordConfirmationChange}
+              onChange={this.onInputChange}
             />
-            <input type="submit" value="Submit" ref='submitBtn' disabled />
+            <input
+              type="submit"
+              value="Submit"
+              disabled={!this.state.isFormValid}
+            />
           </form>
         </div>
       </div>

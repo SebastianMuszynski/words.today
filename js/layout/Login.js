@@ -5,18 +5,27 @@ import Auth from '../Auth'
 const Login = React.createClass({
   getInitialState () {
     return {
-      email: '',
-      password: ''
+      fields: {
+        email: '',
+        password: ''
+      },
+      isFormValid: false
     }
   },
   onInputChange (event) {
-    this.setState({ [event.target.name]: event.target.value })
+    let fields = this.state.fields
+    fields[event.target.name] = event.target.value
+    this.setState({ fields: fields, isFormValid: this.isFormValid() })
+  },
+  isFormValid () {
+    let fields = this.state.fields
+    return Object.keys(fields).every((key) => !!fields[key])
   },
   handleSubmit (event) {
     event.preventDefault()
     const payload = {
-      email: this.state.email,
-      password: this.state.password
+      email: this.state.fields.email,
+      password: this.state.fields.password
     }
     Auth.login(payload).then(() => {
       browserHistory.push('/')
@@ -42,7 +51,11 @@ const Login = React.createClass({
               value={this.state.password}
               onChange={this.onInputChange}
             />
-            <input type="submit" value="Submit" />
+            <input
+              type="submit"
+              value="Submit"
+              disabled={!this.state.isFormValid}
+            />
           </form>
         </div>
       </div>
