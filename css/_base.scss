@@ -37,3 +37,43 @@ h6 {
   font-size: 115%;
   line-height: 1.15;
 }
+
+input {
+  font-family: $font-family;
+  font-size: $font-size;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: $color-blue-dianne;
+
+  &:focus {
+    background-color: $color-chilean-heath;
+  }
+
+  @include placeholder {
+    color: $color-silver-chalice;
+  }
+}
+
+input:not([type="submit"]) {
+  background-color: $color-gallery;
+  color: $color-mine-shaft;
+}
+
+input[type="submit"] {
+  background: none;
+  background-color: $color-burnt-sienna;
+  color: $color-white;
+  cursor: pointer;
+  transition: .3s all;
+
+  &[disabled] {
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  &:focus,
+  &:not([disabled]):hover {
+    background-color: $color-bittersweet;
+  }
+}
