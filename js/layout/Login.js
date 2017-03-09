@@ -35,7 +35,6 @@ const Login = React.createClass({
     return (
       <div className='actionForm'>
         <div>
-          <h1>Log in</h1>
           <form onSubmit={this.handleSubmit}>
             <input
               name="email"
@@ -53,7 +52,7 @@ const Login = React.createClass({
             />
             <input
               type="submit"
-              value="Submit"
+              value="LOG IN"
               disabled={!this.state.isFormValid}
             />
           </form>

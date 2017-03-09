@@ -46,7 +46,6 @@ const SignUp = React.createClass({
     return (
       <div className='actionForm'>
         <div>
-          <h1>Sign up</h1>
           <form onSubmit={this.handleSubmit}>
             <input
               name="username"
@@ -80,7 +79,7 @@ const SignUp = React.createClass({
             />
             <input
               type="submit"
-              value="Submit"
+              value="SIGN UP"
               disabled={!this.state.isFormValid}
             />
           </form>

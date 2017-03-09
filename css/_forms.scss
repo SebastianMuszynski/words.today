@@ -1,6 +1,8 @@
 .actionForm {
   @include center-absolute;
   left: 82%;
+  animation: fadeIn 1s forwards;
+  opacity: 0;
 
   h1 {
     text-align: center;
@@ -16,6 +18,15 @@
     input {
       min-width: 300px;
       margin: 10px 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      margin-top: -15px;
+    }
+    to {
+      opacity: 1;
     }
   }
 }
