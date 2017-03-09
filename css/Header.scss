@@ -26,7 +26,8 @@ header {
         text-decoration: none;
         transition: .3s all;
 
-        &:hover {
+        &:hover,
+        &.active {
           color: $color-bright-sun;
         }
       }
