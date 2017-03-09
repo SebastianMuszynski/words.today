@@ -1,8 +1,8 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
-import Auth from './Auth'
-import NavLink from './ui/NavLink'
-import '../css/Header'
+import Auth from '../Auth'
+import NavLink from '../ui/NavLink'
+import '../../css/Header'
 
 const Header = React.createClass({
   propTypes: {
