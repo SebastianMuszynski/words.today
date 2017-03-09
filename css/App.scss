@@ -1,8 +1,5 @@
 @import '../node_modules/reset-css/_reset';
-@import 'mixins';
-@import 'fonts';
-@import 'colors';
-@import 'forms';
+@import 'common';
 
 $font-family: 'Vollkorn', serif;
 $font-size: 16px;
@@ -11,6 +8,11 @@ body {
   font-family: $font-family;
   background-color: $color-white;
   font-size: $font-size;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -77,3 +79,4 @@ input[type="submit"] {
     background-color: $color-bittersweet;
   }
 }
+

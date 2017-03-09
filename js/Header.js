@@ -33,7 +33,7 @@ const Header = React.createClass({
   },
   render () {
     return (
-      <header>
+      <header className='header'>
         <nav>
           { this.getNavigation() }
         </nav>

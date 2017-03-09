@@ -17,14 +17,14 @@ const Header = React.createClass({
     if (this.props.isLoggedIn) {
       return (
         <ul>
-          <li><a href='#'>About</a></li>
+          <li><NavLink to='/about'>About</NavLink></li>
           <li><a href='#' onClick={this.onLogOutClick}>Log out</a></li>
         </ul>
       )
     } else {
       return (
         <ul>
-          <li><a href='#'>About</a></li>
+          <li><NavLink to='/about'>About</NavLink></li>
           <li><NavLink to='/login'>Log in</NavLink></li>
           <li><NavLink to='/signup'>Sign up</NavLink></li>
         </ul>
@@ -33,7 +33,7 @@ const Header = React.createClass({
   },
   render () {
     return (
-      <header>
+      <header className='header'>
         <nav>
           { this.getNavigation() }
         </nav>
