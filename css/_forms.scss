@@ -31,7 +31,10 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    letter-spacing: 1px;
+
+    a {
+      padding: 0 5px;
+    }
   }
 
   @keyframes FadeIn-Background {
