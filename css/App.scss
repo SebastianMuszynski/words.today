@@ -21,15 +21,7 @@ body {
   color: $color-white;
   text-shadow: 0 1px 10px $color-black;
   font-family: 'Princess Sofia', cursive;
-
   font-size: 70px;
-  animation: text-anim 2s infinite alternate;
-}
-
-@keyframes text-anim {
-  100% {
-    text-shadow: 0 1px 10px $color-emperor;
-  }
 }
 
 h1 {
