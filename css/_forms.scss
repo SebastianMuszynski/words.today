@@ -1,16 +1,16 @@
 .actionForm {
   @include center-absolute;
-  left: 82%;
-  animation: fadeIn 1s forwards;
+  background-color: rgba(0,0,0,.75);
+  width: 100vw;
+  height: 100vh;
   opacity: 0;
-
-  h1 {
-    text-align: center;
-    color: $color-white;
-  }
+  animation: fadeIn 1s forwards;
+  z-index: -1;
 
   form {
-    padding: 30px 50px;
+    margin: 0 auto;
+    width: 400px;
+    margin-top: 350px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -23,7 +23,7 @@
 
   @keyframes fadeIn {
     from {
-      margin-top: -15px;
+      margin-top: -20px;
     }
     to {
       opacity: 1;
