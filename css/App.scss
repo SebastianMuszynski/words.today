@@ -66,6 +66,9 @@ input[type="submit"] {
   background-color: $color-burnt-sienna;
   color: $color-white;
   cursor: pointer;
+  font-family: 'Source Sans Pro';
+  font-weight: 400;
+  letter-spacing: 1px;
   transition: .3s all;
 
   &[disabled] {

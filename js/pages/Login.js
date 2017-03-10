@@ -33,8 +33,9 @@ const Login = React.createClass({
   },
   render () {
     return (
-      <div className='actionForm'>
-        <div>
+      <div className='AuthForm'>
+        <div className='AuthForm__form'>
+          <h1>Log in</h1>
           <form onSubmit={this.handleSubmit}>
             <input
               name="email"

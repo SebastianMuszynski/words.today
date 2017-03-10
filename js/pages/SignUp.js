@@ -44,8 +44,9 @@ const SignUp = React.createClass({
   },
   render () {
     return (
-      <div className='actionForm'>
-        <div>
+      <div className='AuthForm'>
+        <div className='AuthForm__form'>
+          <h1>Sign up</h1>
           <form onSubmit={this.handleSubmit}>
             <input
               name="username"

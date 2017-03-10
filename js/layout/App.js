@@ -11,7 +11,7 @@ const App = React.createClass({
     return (
       <div>
         <Header isLoggedIn={this.isLoggedIn()} />
-        <div className="container">
+        <div>
           {this.props.children}
         </div>
       </div>
