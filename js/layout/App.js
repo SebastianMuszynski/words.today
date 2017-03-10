@@ -1,5 +1,5 @@
 import React from 'react'
-import Auth from '../Auth'
+import Auth from '../auth/Auth'
 import Header from './Header'
 import '../../css/App'
 
@@ -12,7 +12,6 @@ const App = React.createClass({
       <div>
         <Header isLoggedIn={this.isLoggedIn()} />
         <div className="container">
-          <h1 className='magic-title'>Learn vocabulary with ease</h1>
           {this.props.children}
         </div>
       </div>

@@ -5,7 +5,6 @@ $font-family: 'Vollkorn', serif;
 $font-size: 16px;
 
 body {
-  @include background-picture("../img/pic-children.jpg");
   font-family: $font-family;
   background-color: $color-white;
   font-size: $font-size;
@@ -14,14 +13,6 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.magic-title {
-  text-align: center;
-  color: $color-white;
-  text-shadow: 0 1px 10px $color-black;
-  font-family: 'Princess Sofia', cursive;
-  font-size: 70px;
 }
 
 h1 {

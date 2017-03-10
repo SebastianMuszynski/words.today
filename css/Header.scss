@@ -1,16 +1,21 @@
 @import 'common';
 
 .header {
-  $header-height: 70px;
+  $header-height: 80px;
   $header-font-size: 16px;
 
-  height: $header-height;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: $header-font-size;
   font-weight: 300;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: $header-height;
 
   nav {
     margin-right: 20px;
