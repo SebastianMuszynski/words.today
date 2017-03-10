@@ -23,18 +23,6 @@
     li {
       display: inline-block;
       margin-right: 15px;
-
-      a {
-        color: $color-mine-shaft;
-        padding: 5px 10px;
-        text-decoration: none;
-        transition: .3s all;
-
-        &:hover,
-        &.active {
-          color: $color-bright-sun;
-        }
-      }
     }
   }
 }

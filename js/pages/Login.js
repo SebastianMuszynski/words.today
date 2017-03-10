@@ -1,5 +1,5 @@
 import React from 'react'
-import { browserHistory } from 'react-router'
+import { browserHistory, Link } from 'react-router'
 import Auth from '../auth/Auth'
 
 const Login = React.createClass({
@@ -57,6 +57,10 @@ const Login = React.createClass({
               disabled={!this.state.isFormValid}
             />
           </form>
+          <div className='AuthForm__links'>
+            <Link to='/'>↫ Home</Link>
+            <Link to='/signup'>Sign up</Link>
+          </div>
         </div>
       </div>
     )

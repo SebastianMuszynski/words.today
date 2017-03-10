@@ -24,6 +24,23 @@
       min-width: 300px;
       margin: 10px 0;
     }
+
+  }
+
+  &__links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    a {
+      text-transform: uppercase;
+      font-family: 'Source Sans Pro', sans-serif;
+      color: $color-silver-chalice;
+
+      &:hover {
+        color: $color-emperor;
+      }
+    }
   }
 
   @keyframes FadeIn-Background {
