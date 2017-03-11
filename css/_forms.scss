@@ -1,16 +1,17 @@
 .AuthForm {
-  background-color: $color-gallery;
+  @include background-picture("../img/pic-learning.jpg");
   width: 100vw;
   height: 100vh;
-  opacity: 0;
-  animation: FadeIn-Background 1s forwards;
 
   &__form {
+    background-color: rgba(0,0,0,.7);
+    padding: 100px 100%;
+    border-radius: 5px;
     @include center-absolute;
 
     h1 {
       text-align: center;
-      color: $color-mine-shaft;
+      color: $color-white;
     }
 
     form {
@@ -18,6 +19,7 @@
       justify-content: center;
       flex-direction: column;
       animation: FadeIn-Form 1s forwards;
+      opacity: 0;
     }
 
     input {
@@ -37,7 +39,7 @@
     }
   }
 
-  @keyframes FadeIn-Background {
+  @keyframes FadeIn-Form {
     to {
       opacity: 1;
     }

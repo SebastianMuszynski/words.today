@@ -1,14 +1,9 @@
 @import '../node_modules/reset-css/_reset';
 @import 'common';
 
-$font-family-serif: 'Vollkorn', serif;
-$font-family-sans-serif-nav: 'Source Sans Pro', 'Oswald', sans-serif;
-$font-family-sans-serif: 'Oswald', 'Source Sans Pro', sans-serif;
-$font-size: 16px;
-
 body {
   font-family: $font-family-serif;
-  background-color: $color-gallery;
+  background-color: $color-white;
   font-size: $font-size;
 }
 

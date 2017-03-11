@@ -1,7 +1,7 @@
 @import 'common';
 
 .header {
-  $header-height: 80px;
+  $header-height: 70px;
   $header-font-size: 16px;
 
   display: flex;
@@ -9,7 +9,7 @@
   justify-content: flex-end;
   font-size: $header-font-size;
 
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -25,6 +25,13 @@
 
     a {
       padding: 5px 10px;
+      color: $color-white;
+      border-radius: 3px;
+      font-family: $font-family-sans-serif;
+
+      &:hover {
+        background-color: $color-burnt-sienna;
+      }
     }
   }
 }
