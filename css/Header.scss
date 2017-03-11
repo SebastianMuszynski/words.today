@@ -28,8 +28,10 @@
       color: $color-white;
       border-radius: 3px;
       font-family: $font-family-sans-serif;
+      text-shadow: 0 0 5px $color-black;
 
-      &:hover {
+      &:hover,
+      &.active {
         background-color: $color-burnt-sienna;
       }
     }
