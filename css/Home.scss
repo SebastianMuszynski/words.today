@@ -1,7 +1,7 @@
 @import 'common';
 
 .Home {
-  @include background-picture("../img/pic-children.jpg");
+  @include background-picture("../img/pic-children-high.jpg");
   width: 100vw;
   height: 100vh;
 }
