@@ -10,12 +10,14 @@
   z-index: -1;
 
   .sets {
-    margin-top: $header-height;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    max-width: 800px;
+    margin: $header-height auto;
 
     &__set {
-      $square-side: 150px;
+      $square-side: 160px;
 
       font-family: $font-family-sans-serif;
       color: $color-white;

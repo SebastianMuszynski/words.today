@@ -18,6 +18,19 @@ const Study = React.createClass({
           <div className='sets__set'>
             WORK
           </div>
+
+          <div className='sets__set'>
+            HOME
+          </div>
+          <div className='sets__set'>
+            JOBS
+          </div>
+          <div className='sets__set'>
+            SCHOOL
+          </div>
+          <div className='sets__set'>
+            WORK
+          </div>
         </section>
       </div>
     )
