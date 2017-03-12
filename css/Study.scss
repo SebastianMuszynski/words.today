@@ -4,10 +4,11 @@
   @include background-picture("../img/pic-elephant-high.jpg");
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
+  overflow-y: scroll;
 
   .sets {
     display: flex;
