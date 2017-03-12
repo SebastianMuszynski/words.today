@@ -1,5 +1,5 @@
 import React from 'react'
-import { browserHistory } from 'react-router'
+import { browserHistory, Link } from 'react-router'
 import Auth from '../auth/Auth'
 import NavLink from '../ui/NavLink'
 import '../../css/Header'
@@ -17,6 +17,9 @@ const Header = React.createClass({
     if (this.props.isLoggedIn) {
       return (
         <ul>
+          <li><NavLink to='/'>Home</NavLink></li>
+          <li><NavLink to='/study'>Study</NavLink></li>
+          <li><NavLink to='/account'>Account</NavLink></li>
           <li><a href='#' onClick={this.onLogOutClick}>Log out</a></li>
         </ul>
       )
