@@ -19,6 +19,17 @@
 
     h1 {
       text-align: center;
+      animation: FadeIn-Text 2s forwards;
+    }
+
+    @keyframes FadeIn-Text {
+      from {
+        opacity: 0;
+        margin-left: -120px;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     span {
