@@ -17,7 +17,6 @@ const Header = React.createClass({
     if (this.props.isLoggedIn) {
       return (
         <ul>
-          <li><NavLink to='/'>Home</NavLink></li>
           <li><NavLink to='/study'>Study</NavLink></li>
           <li><NavLink to='/account'>Account</NavLink></li>
           <li><a href='#' onClick={this.onLogOutClick}>Log out</a></li>

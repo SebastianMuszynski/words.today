@@ -1,0 +1,40 @@
+@import 'common';
+
+.Study {
+  @include background-picture("../img/pic-elephant-high.jpg");
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  .sets {
+    margin-top: $header-height;
+    display: flex;
+    justify-content: center;
+
+    &__set {
+      $square-side: 150px;
+
+      font-family: $font-family-sans-serif;
+      color: $color-white;
+      text-align: center;
+      letter-spacing: 2px;
+      line-height: $square-side;
+      width: $square-side;
+      height: $square-side;
+      margin: 20px;
+      cursor: pointer;
+      background-color: rgba(0,0,0,.7);
+      box-shadow: 0 0 15px $color-black;
+      text-shadow: 0 0 3px $color-black;
+      transition: .3s all;
+
+      &:hover {
+        background-color: rgba(0,0,0,.6);
+        box-shadow: 0 0 15px 5px $color-black;
+      }
+    }
+  }
+}
