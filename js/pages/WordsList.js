@@ -67,14 +67,20 @@ const WordsList = React.createClass({
               <input type='submit' />
             </form>
           </div>
-          <h1>Your words</h1>
-          <section className='words'>
-            { this.state.words.map((word) => {
-              return (
-                <div className='words__word' key={word.id}>{word.name}</div>
-              )
-            })}
-          </section>
+          { this.state.words.length ?
+            <section>
+              <h1>Your words</h1>
+              <div className='words'>
+                { this.state.words.map((word) => {
+                  return (
+                    <div className='words__word' key={word.id}>{word.name}</div>
+                  )
+                })}
+              </div>
+            </section>
+            :
+            null
+          }
         </div>
       </div>
     )
