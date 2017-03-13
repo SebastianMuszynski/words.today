@@ -1,4 +1,6 @@
 import React from 'react'
+import Auth from '../auth/Auth'
+import axios from 'axios'
 import '../../css/Study'
 
 const Study = React.createClass({
@@ -7,8 +9,21 @@ const Study = React.createClass({
       fields: {
         newSetName: ''
       },
-      isFormValid: false
+      isFormValid: false,
+      lists: []
     }
+  },
+  componentDidMount () {
+    let config = {
+      headers: {
+        Authorization: Auth.getToken()
+      }
+    }
+    axios.get('http://localhost:3000/lists', config).then((lists) => {
+      let listsNames = []
+      lists.data.map((list) => listsNames.push(list.name))
+      this.setState({ lists: listsNames })
+    })
   },
   onInputChange (event) {
     let fields = this.state.fields
@@ -39,32 +54,13 @@ const Study = React.createClass({
               <input type='submit' />
             </form>
           </div>
-          <h1>Review</h1>
+          <h1>Your lists</h1>
           <section className='sets'>
-            <div className='sets__set'>JOBS</div>
-            <div className='sets__set'>SCHOOL</div>
-            <div className='sets__set'>CALENDAR</div>
-            <div className='sets__set'>WORK</div>
-
-            <div className='sets__set'>ANIMALS</div>
-            <div className='sets__set'>BODY</div>
-            <div className='sets__set'>COSMETICS</div>
-            <div className='sets__set'>NEWSPAPER</div>
-
-            <div className='sets__set'>BUILDINGS</div>
-            <div className='sets__set'>CARS</div>
-            <div className='sets__set'>HOME</div>
-            <div className='sets__set'>CELEBRATIONS</div>
-
-            <div className='sets__set'>CLOTHES</div>
-            <div className='sets__set'>COLORS</div>
-            <div className='sets__set'>COMPUTERS</div>
-            <div className='sets__set'>COUNTRIES</div>
-
-            <div className='sets__set'>FAMILY</div>
-            <div className='sets__set'>DRINKS</div>
-            <div className='sets__set'>FOOD</div>
-            <div className='sets__set'>GEOGRAPHY</div>
+            { this.state.lists.map((list) => {
+              return (
+                <div className='sets__set' key={list}>{list}</div>
+              )
+            })}
           </section>
         </div>
       </div>
