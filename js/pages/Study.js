@@ -71,20 +71,28 @@ const Study = React.createClass({
               <input type='submit' />
             </form>
           </div>
-          <h1>Your lists</h1>
-          <section className='lists'>
-            { this.state.lists.map((list) => {
-              return (
-                <div
-                  className='lists__list'
-                  key={list.id}
-                  onClick={this.onListClick.bind(this, list.id)}
-                >
-                  {list.name}
+          { this.state.lists.length ?
+            (
+              <section>
+                <h1>Your lists</h1>
+                <div className='lists'>
+                  { this.state.lists.map((list) => {
+                    return (
+                      <div
+                        className='lists__list'
+                        key={list.id}
+                        onClick={this.onListClick.bind(this, list.id)}
+                      >
+                        {list.name}
+                      </div>
+                    )
+                  })}
                 </div>
-              )
-            })}
-          </section>
+              </section>
+            )
+            :
+            null
+          }
         </div>
       </div>
     )
