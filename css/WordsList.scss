@@ -1,0 +1,63 @@
+@import 'common';
+
+.WordsList {
+  @include background-picture("../img/pic-elephant-high.jpg");
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow-y: scroll;
+
+  .container {
+    max-width: 800px;
+    margin: $header-height auto;
+    background-color: rgba(0,0,0,.4);
+    padding: 30px 50px;
+  }
+
+  h1 {
+    color: $color-white;
+    margin: 30px 20px;
+    text-shadow: 0 0 5px $color-black;
+  }
+
+  .add-word {
+    margin-bottom: 60px;
+
+    form {
+      margin: 0 20px;
+      display: flex;
+      justify-content: space-between;
+
+      input[type='text'] {
+        flex-grow: 1;
+        margin-right: 40px;
+      }
+
+      input[type='submit'] {
+        min-width: 160px;
+      }
+    }
+  }
+
+  .words {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+
+    &__word {
+      color: $color-mine-shaft;
+      background-color: rgba(255,255,255,.9);
+      padding: 15px;
+      border-bottom: 1px solid $color-mine-shaft;
+      transition: .3s all;
+
+      &:hover {
+        background-color: rgba(255,255,255,.8);
+        padding-left: 20px;
+      }
+    }
+  }
+}
