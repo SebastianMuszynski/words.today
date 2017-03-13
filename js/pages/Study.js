@@ -8,7 +8,7 @@ const Study = React.createClass({
   getInitialState () {
     return {
       fields: {
-        newSetName: ''
+        newList: ''
       },
       isFormValid: false,
       lists: []
@@ -42,12 +42,12 @@ const Study = React.createClass({
     }
     let payload = {
       list: {
-        name: this.state.fields.newSetName
+        name: this.state.fields.newList
       }
     }
     axios.post('http://localhost:3000/lists', payload, config).then((list) => {
       let fields = this.state.fields
-      fields.newSetName = ''
+      fields.newList = ''
       this.setState({ lists: [...this.state.lists, list.data], fields: fields })
     })
   },
@@ -59,24 +59,24 @@ const Study = React.createClass({
       <div className='Study'>
         <div className='container'>
           <h1>Create new list</h1>
-          <div className='create-set'>
+          <div className='create-list'>
             <form onSubmit={this.handleSubmit}>
               <input
                 type='text'
-                name='newSetName'
+                name='newList'
                 placeholder='Name'
-                value={this.state.fields.newSetName}
+                value={this.state.fields.newList}
                 onChange={this.onInputChange}
               />
               <input type='submit' />
             </form>
           </div>
           <h1>Your lists</h1>
-          <section className='sets'>
+          <section className='lists'>
             { this.state.lists.map((list) => {
               return (
                 <div
-                  className='sets__set'
+                  className='lists__list'
                   key={list.id}
                   onClick={this.onListClick.bind(this, list.id)}
                 >

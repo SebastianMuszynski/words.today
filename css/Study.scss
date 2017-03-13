@@ -23,7 +23,7 @@
     text-shadow: 0 0 5px $color-black;
   }
 
-  .create-set {
+  .create-list {
     margin-bottom: 60px;
 
     form {
@@ -42,13 +42,13 @@
     }
   }
 
-  .sets {
+  .lists {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: -20px;
 
-    &__set {
+    &__list {
       $square-side: 160px;
 
       font-family: $font-family-sans-serif;
