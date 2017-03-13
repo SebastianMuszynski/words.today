@@ -45,7 +45,9 @@ const WordsList = React.createClass({
       }
     }
     axios.post(`http://localhost:3000/lists/${this.props.params.id}/words`, payload, config).then((word) => {
-      this.setState({ words: [...this.state.words, word.data] })
+      let fields = this.state.fields
+      fields.newWord = ''
+      this.setState({ words: [...this.state.words, word.data], fields: fields })
     })
   },
   render () {
