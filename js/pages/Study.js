@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 import Auth from '../auth/Auth'
 import axios from 'axios'
 import '../../css/Study'
@@ -20,9 +21,7 @@ const Study = React.createClass({
       }
     }
     axios.get('http://localhost:3000/lists', config).then((lists) => {
-      let listsNames = []
-      lists.data.map((list) => listsNames.push(list.name))
-      this.setState({ lists: listsNames })
+      this.setState({ lists: lists.data })
     })
   },
   onInputChange (event) {
@@ -36,6 +35,9 @@ const Study = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
+  },
+  onListClick (listId) {
+    browserHistory.push('/study/' + listId)
   },
   render () {
     return (
@@ -58,7 +60,13 @@ const Study = React.createClass({
           <section className='sets'>
             { this.state.lists.map((list) => {
               return (
-                <div className='sets__set' key={list}>{list}</div>
+                <div
+                  className='sets__set'
+                  key={list.id}
+                  onClick={this.onListClick.bind(this, list.id)}
+                >
+                  {list.name}
+                </div>
               )
             })}
           </section>

@@ -15,6 +15,7 @@ render((
       <Route path="login" component={Login} />
       <Route path="signup" component={SignUp} />
       <Route path="study" component={Study} />
+      <Route path="study/:id" component={WordsList} />
       <Route path="words" component={WordsList} />
     </Route>
   </Router>
