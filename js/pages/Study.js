@@ -35,6 +35,21 @@ const Study = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
+    let config = {
+      headers: {
+        Authorization: Auth.getToken()
+      }
+    }
+    let payload = {
+      list: {
+        name: this.state.fields.newSetName
+      }
+    }
+    axios.post('http://localhost:3000/lists', payload, config).then((list) => {
+      let fields = this.state.fields
+      fields.newSetName = ''
+      this.setState({ lists: [...this.state.lists, list.data], fields: fields })
+    })
   },
   onListClick (listId) {
     browserHistory.push('/study/' + listId)
