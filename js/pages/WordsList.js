@@ -1,4 +1,6 @@
 import React from 'react'
+import Auth from '../auth/Auth'
+import axios from 'axios'
 import '../../css/WordsList'
 
 const WordsList = React.createClass({
@@ -7,8 +9,19 @@ const WordsList = React.createClass({
       fields: {
         newWord: ''
       },
-      isFormValid: false
+      isFormValid: false,
+      words: []
     }
+  },
+  componentDidMount () {
+    let config = {
+      headers: {
+        Authorization: Auth.getToken()
+      }
+    }
+    axios.get(`http://localhost:3000/lists/${this.props.params.id}/words`, config).then((words) => {
+      this.setState({ words: words.data })
+    })
   },
   onInputChange (event) {
     let fields = this.state.fields
@@ -21,6 +34,19 @@ const WordsList = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
+    let config = {
+      headers: {
+        Authorization: Auth.getToken()
+      }
+    }
+    let payload = {
+      word: {
+        name: this.state.fields.newWord
+      }
+    }
+    axios.post(`http://localhost:3000/lists/${this.props.params.id}/words`, payload, config).then((word) => {
+      this.setState({ words: [...this.state.words, word.data] })
+    })
   },
   render () {
     return (
@@ -41,30 +67,11 @@ const WordsList = React.createClass({
           </div>
           <h1>Your words</h1>
           <section className='words'>
-            <div className='words__word'>jobs</div>
-            <div className='words__word'>school</div>
-            <div className='words__word'>calendar</div>
-            <div className='words__word'>work</div>
-
-            <div className='words__word'>animals</div>
-            <div className='words__word'>body</div>
-            <div className='words__word'>cosmetics</div>
-            <div className='words__word'>newspaper</div>
-
-            <div className='words__word'>buildings</div>
-            <div className='words__word'>cars</div>
-            <div className='words__word'>home</div>
-            <div className='words__word'>celebrations</div>
-
-            <div className='words__word'>clothes</div>
-            <div className='words__word'>colors</div>
-            <div className='words__word'>computers</div>
-            <div className='words__word'>countries</div>
-
-            <div className='words__word'>family</div>
-            <div className='words__word'>drinks</div>
-            <div className='words__word'>food</div>
-            <div className='words__word'>geography</div>
+            { this.state.words.map((word) => {
+              return (
+                <div className='words__word' key={word.id}>{word.name}</div>
+              )
+            })}
           </section>
         </div>
       </div>
