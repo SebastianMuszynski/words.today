@@ -1,5 +1,6 @@
 import React from 'react'
 import Auth from '../services/Auth'
+import User from '../services/User'
 import axios from 'axios'
 import '../../css/Account'
 
@@ -10,58 +11,23 @@ const Account = React.createClass({
     }
   },
   componentDidMount () {
-    axios.get('http://localhost:3000/lists', Auth.getConfig()).then((lists) => {
-      this.setState({ lists: lists.data })
+    User.getCurrentUser().then((user) => {
+      this.setState({ user: user })
     })
-  },
-  onInputChange (event) {
-    let fields = this.state.fields
-    fields[event.target.name] = event.target.value
-    this.setState({ fields: fields, isFormValid: this.isFormValid() })
-  },
-  isFormValid () {
-    let fields = this.state.fields
-    return Object.keys(fields).every((key) => !!fields[key])
   },
   render () {
     return (
       <div className='Account'>
         <div className='container'>
-          <h1>Create new list</h1>
-          <div className='create-list'>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type='text'
-                name='newList'
-                placeholder='Name'
-                value={this.state.fields.newList}
-                onChange={this.onInputChange}
-              />
-              <input type='submit' />
-            </form>
+          <h1>Your account</h1>
+          <div className='user-info'>
+            <div className='user-info__label'>Username</div>
+            <div className='user-info__value'>{ this.state.user.username }</div>
           </div>
-          { this.state.lists.length ?
-            (
-              <section>
-                <h1>Your lists</h1>
-                <div className='lists'>
-                  { this.state.lists.map((list) => {
-                    return (
-                      <div
-                        className='lists__list'
-                        key={list.id}
-                        onClick={this.onListClick.bind(this, list.id)}
-                      >
-                        {list.name}
-                      </div>
-                    )
-                  })}
-                </div>
-              </section>
-            )
-            :
-            null
-          }
+          <div className='user-info'>
+            <div className='user-info__label'>Email address</div>
+            <div className='user-info__value'>{ this.state.user.email }</div>
+          </div>
         </div>
       </div>
     )
