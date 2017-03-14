@@ -13,8 +13,12 @@ const Auth = {
     })
   },
   login: function(data) {
-    return this.requestAPI(AUTH.AUTHENTICATE.METHOD, AUTH.AUTHENTICATE.URL, data).then((res) => {
-      localStorage.token = res.data.auth_token
+    return this.requestAPI(
+      AUTH.AUTHENTICATE.METHOD,
+      AUTH.AUTHENTICATE.URL,
+      data
+    ).then((result) => {
+      localStorage.token = result.data.auth_token
     })
   },
   logout: function() {
