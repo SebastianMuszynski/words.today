@@ -1,6 +1,5 @@
 import React from 'react'
-import Auth from '../services/Auth'
-import axios from 'axios'
+import Word from '../services/Word'
 import '../../css/WordsList'
 
 const WordsList = React.createClass({
@@ -13,9 +12,12 @@ const WordsList = React.createClass({
       words: []
     }
   },
+  getListId () {
+    return this.props.params.id
+  },
   componentDidMount () {
-    axios.get(`http://localhost:3000/lists/${this.props.params.id}/words`, Auth.getConfig()).then((words) => {
-      this.setState({ words: words.data })
+    Word.getAll(this.getListId()).then((words) => {
+      this.setState({ words: words })
     })
   },
   onInputChange (event) {
@@ -29,15 +31,18 @@ const WordsList = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
-    let payload = {
+    let data = {
       word: {
         name: this.state.fields.newWord
       }
     }
-    axios.post(`http://localhost:3000/lists/${this.props.params.id}/words`, payload, Auth.getConfig()).then((word) => {
+    this.addWord(data)
+  },
+  addWord (data) {
+    Word.create(this.getListId(), data).then((word) => {
       let fields = this.state.fields
       fields.newWord = ''
-      this.setState({ words: [...this.state.words, word.data], fields: fields })
+      this.setState({ words: [...this.state.words, word], fields: fields })
     })
   },
   render () {

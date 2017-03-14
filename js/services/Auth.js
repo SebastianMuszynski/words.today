@@ -1,13 +1,19 @@
 import axios from 'axios'
+import { AUTH, USER } from './_constants'
 
 const Auth = {
-  signup: function (payload) {
-    return axios.post('http://localhost:3000/users', payload).then((res) => {
-      localStorage.token = res.data.auth_token
+  requestAPI: function (method, url, data) {
+    return axios({
+      method: method,
+      url: url,
+      data: data,
+      headers: {
+        Authorization: this.getToken()
+      }
     })
   },
-  login: function(payload) {
-    return axios.post('http://localhost:3000/authenticate', payload).then((res) => {
+  login: function(data) {
+    return this.requestAPI(AUTH.AUTHENTICATE.METHOD, AUTH.AUTHENTICATE.URL, data).then((res) => {
       localStorage.token = res.data.auth_token
     })
   },
@@ -19,13 +25,6 @@ const Auth = {
   },
   isLoggedIn: function() {
     return !!localStorage.token
-  },
-  getConfig: function () {
-    return {
-      headers: {
-        Authorization: this.getToken()
-      }
-    }
   }
 }
 

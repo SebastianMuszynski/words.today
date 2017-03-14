@@ -23,11 +23,14 @@ const Login = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
-    const payload = {
+    const data = {
       email: this.state.fields.email,
       password: this.state.fields.password
     }
-    Auth.login(payload).then(() => {
+    this.logIn(data)
+  },
+  logIn (data) {
+    Auth.login(data).then(() => {
       browserHistory.push('/')
     })
   },

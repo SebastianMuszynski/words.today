@@ -1,6 +1,7 @@
 import React from 'react'
 import { browserHistory, Link } from 'react-router'
 import Auth from '../services/Auth'
+import User from '../services/User'
 
 const SignUp = React.createClass({
   getInitialState () {
@@ -31,15 +32,24 @@ const SignUp = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
-    const payload = {
+    const data = {
       user: {
         username: this.state.fields.username,
         email: this.state.fields.email,
         password: this.state.fields.password
       }
     }
-    Auth.signup(payload).then((res) => {
-      browserHistory.push('/')
+    this.signUpAndLogIn(data)
+  },
+  signUpAndLogIn (data) {
+    User.create(data).then((user) => {
+      const loginData = {
+        email: data.user.email,
+        password: data.user.password
+      }
+      Auth.login(loginData).then(() => {
+        browserHistory.push('/')
+      })
     })
   },
   render () {

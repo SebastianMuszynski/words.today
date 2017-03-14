@@ -1,7 +1,6 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
-import Auth from '../services/Auth'
-import axios from 'axios'
+import List from '../services/List'
 import '../../css/Study'
 
 const Study = React.createClass({
@@ -15,8 +14,8 @@ const Study = React.createClass({
     }
   },
   componentDidMount () {
-    axios.get('http://localhost:3000/lists', Auth.getConfig()).then((lists) => {
-      this.setState({ lists: lists.data })
+    List.getAll().then((lists) => {
+      this.setState({ lists: lists })
     })
   },
   onInputChange (event) {
@@ -28,21 +27,24 @@ const Study = React.createClass({
     let fields = this.state.fields
     return Object.keys(fields).every((key) => !!fields[key])
   },
+  onListClick (listId) {
+    browserHistory.push('/study/' + listId)
+  },
   handleSubmit (event) {
     event.preventDefault()
-    let payload = {
+    let data = {
       list: {
         name: this.state.fields.newList
       }
     }
-    axios.post('http://localhost:3000/lists', payload, Auth.getConfig()).then((list) => {
+    this.createList(data)
+  },
+  createList (data) {
+    List.create(data).then((list) => {
       let fields = this.state.fields
       fields.newList = ''
-      this.setState({ lists: [...this.state.lists, list.data], fields: fields })
+      this.setState({ lists: [...this.state.lists, list], fields: fields })
     })
-  },
-  onListClick (listId) {
-    browserHistory.push('/study/' + listId)
   },
   render () {
     return (

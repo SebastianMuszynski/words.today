@@ -9,7 +9,7 @@ const Account = React.createClass({
     }
   },
   componentDidMount () {
-    User.getCurrentUser().then((user) => {
+    User.getCurrent().then((user) => {
       this.setState({ user: user })
     })
   },

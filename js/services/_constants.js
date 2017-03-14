@@ -1,0 +1,45 @@
+export const API_HOST = 'http://localhost:3000'
+
+export const AUTH = {
+  AUTHENTICATE: {
+    METHOD: 'POST',
+    URL: `${API_HOST}/authenticate`
+  }
+}
+
+export const USER = {
+  GET_CURRENT: {
+    METHOD: 'GET',
+    URL: `${API_HOST}/user_info`
+  },
+  CREATE: {
+    METHOD: 'POST',
+    URL: `${API_HOST}/users`
+  }
+}
+
+export const LIST = {
+  GET_ALL: {
+    METHOD: 'GET',
+    URL: `${API_HOST}/lists`
+  },
+  CREATE: {
+    METHOD: 'POST',
+    URL: `${API_HOST}/lists`
+  }
+}
+
+export const WORD = {
+  GET_ALL: {
+    METHOD: 'GET',
+    URL: function (listId) {
+      return `${API_HOST}/lists/${listId}/words`
+    }
+  },
+  CREATE: {
+    METHOD: 'POST',
+    URL: function (listId) {
+      return `${API_HOST}/lists/${listId}/words`
+    }
+  }
+}
