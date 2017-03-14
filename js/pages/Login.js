@@ -41,14 +41,14 @@ const Login = React.createClass({
               name="email"
               type="text"
               placeholder="E-mail"
-              value={this.state.email}
+              value={this.state.fields.email}
               onChange={this.onInputChange}
             />
             <input
               name="password"
               type="password"
               placeholder="Password"
-              value={this.state.password}
+              value={this.state.fields.password}
               onChange={this.onInputChange}
             />
             <input

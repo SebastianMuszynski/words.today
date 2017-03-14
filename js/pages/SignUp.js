@@ -52,14 +52,14 @@ const SignUp = React.createClass({
               name="username"
               type="text"
               placeholder="Username"
-              value={this.state.username}
+              value={this.state.fields.username}
               onChange={this.onInputChange}
             />
             <input
               name="email"
               type="text"
               placeholder="E-mail"
-              value={this.state.email}
+              value={this.state.fields.email}
               onChange={this.onInputChange}
             />
             <input
@@ -67,7 +67,7 @@ const SignUp = React.createClass({
               ref="password"
               type="password"
               placeholder="Password"
-              value={this.state.password}
+              value={this.state.fields.password}
               onChange={this.onInputChange}
             />
             <input
@@ -75,7 +75,7 @@ const SignUp = React.createClass({
               ref="passwordConfirmation"
               type="password"
               placeholder="Password confirmation"
-              value={this.state.passwordConfirmation}
+              value={this.state.fields.passwordConfirmation}
               onChange={this.onInputChange}
             />
             <input
