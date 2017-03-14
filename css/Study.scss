@@ -46,29 +46,27 @@
   .lists {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: -20px;
 
     &__list {
-      $square-side: 160px;
+      $square-side: 120px;
 
       font-family: $font-family-sans-serif;
-      color: $color-mine-shaft;
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 2px;
+      background-color: $color-bright-sun;
+      color: $color-mine-shaft;
       line-height: $square-side;
       width: $square-side;
       height: $square-side;
       margin: 20px;
       cursor: pointer;
-      background-color: rgba(255,255,255,.9);
       border-radius: 3px;
       transition: .3s all;
 
       &:hover {
-        background-color: rgba(255,255,255,.8);
-        box-shadow: 0 0 5px 5px $color-white;
         text-shadow: 0 0 5px $color-black;
         color: $color-white;
         letter-spacing: 1px;
