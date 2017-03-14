@@ -10,6 +10,8 @@ const Auth = {
       headers: {
         Authorization: this.getToken()
       }
+    }).then((result) => {
+      return result.data
     })
   },
   login: function(data) {
@@ -18,7 +20,7 @@ const Auth = {
       AUTH.AUTHENTICATE.URL,
       data
     ).then((result) => {
-      localStorage.token = result.data.auth_token
+      localStorage.token = result.auth_token
     })
   },
   logout: function() {
