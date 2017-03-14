@@ -6,7 +6,7 @@ const Home = React.createClass({
     return (
       <div className='Home'>
         <section className='info'>
-          <h1>LEARN NEW<br/> <span>WORDS.TODAY</span></h1>
+          <h2>LEARN NEW<br/> <span>WORDS.TODAY</span></h2>
         </section>
       </div>
     )

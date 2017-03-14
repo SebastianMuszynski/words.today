@@ -56,7 +56,7 @@ const SignUp = React.createClass({
     return (
       <div className='AuthForm'>
         <div className='AuthForm__form'>
-          <h1>Sign up</h1>
+          <h2>Sign up</h2>
           <form onSubmit={this.handleSubmit}>
             <input
               name="username"
