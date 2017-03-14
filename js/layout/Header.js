@@ -1,6 +1,6 @@
 import React from 'react'
 import { browserHistory, Link } from 'react-router'
-import Auth from '../auth/Auth'
+import Auth from '../services/Auth'
 import NavLink from '../ui/NavLink'
 import '../../css/Header'
 

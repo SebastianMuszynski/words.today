@@ -1,17 +1,12 @@
 import React from 'react'
-import { browserHistory } from 'react-router'
 import Auth from '../services/Auth'
 import axios from 'axios'
-import '../../css/Study'
+import '../../css/Account'
 
-const Study = React.createClass({
+const Account = React.createClass({
   getInitialState () {
     return {
-      fields: {
-        newList: ''
-      },
-      isFormValid: false,
-      lists: []
+      user: {}
     }
   },
   componentDidMount () {
@@ -28,25 +23,9 @@ const Study = React.createClass({
     let fields = this.state.fields
     return Object.keys(fields).every((key) => !!fields[key])
   },
-  handleSubmit (event) {
-    event.preventDefault()
-    let payload = {
-      list: {
-        name: this.state.fields.newList
-      }
-    }
-    axios.post('http://localhost:3000/lists', payload, Auth.getConfig()).then((list) => {
-      let fields = this.state.fields
-      fields.newList = ''
-      this.setState({ lists: [...this.state.lists, list.data], fields: fields })
-    })
-  },
-  onListClick (listId) {
-    browserHistory.push('/study/' + listId)
-  },
   render () {
     return (
-      <div className='Study'>
+      <div className='Account'>
         <div className='container'>
           <h1>Create new list</h1>
           <div className='create-list'>
@@ -89,4 +68,4 @@ const Study = React.createClass({
   }
 })
 
-export default Study
+export default Account

@@ -1,5 +1,5 @@
 import React from 'react'
-import Auth from '../auth/Auth'
+import Auth from '../services/Auth'
 import axios from 'axios'
 import '../../css/WordsList'
 
@@ -14,12 +14,7 @@ const WordsList = React.createClass({
     }
   },
   componentDidMount () {
-    let config = {
-      headers: {
-        Authorization: Auth.getToken()
-      }
-    }
-    axios.get(`http://localhost:3000/lists/${this.props.params.id}/words`, config).then((words) => {
+    axios.get(`http://localhost:3000/lists/${this.props.params.id}/words`, Auth.getConfig()).then((words) => {
       this.setState({ words: words.data })
     })
   },
@@ -34,17 +29,12 @@ const WordsList = React.createClass({
   },
   handleSubmit (event) {
     event.preventDefault()
-    let config = {
-      headers: {
-        Authorization: Auth.getToken()
-      }
-    }
     let payload = {
       word: {
         name: this.state.fields.newWord
       }
     }
-    axios.post(`http://localhost:3000/lists/${this.props.params.id}/words`, payload, config).then((word) => {
+    axios.post(`http://localhost:3000/lists/${this.props.params.id}/words`, payload, Auth.getConfig()).then((word) => {
       let fields = this.state.fields
       fields.newWord = ''
       this.setState({ words: [...this.state.words, word.data], fields: fields })

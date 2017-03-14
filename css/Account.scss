@@ -1,0 +1,78 @@
+@import 'common';
+
+.Account {
+  @include background-picture("../img/pic-elephant-high.jpg");
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow-y: scroll;
+
+  .container {
+    max-width: 800px;
+    margin: $header-height auto;
+    background-color: rgba(0,0,0,.4);
+    padding: 30px 50px;
+  }
+
+  h1 {
+    color: $color-white;
+    margin: 30px 20px;
+    text-shadow: 0 0 5px $color-black;
+    border-bottom: 3px solid $color-bright-sun;
+  }
+
+  .create-list {
+    margin-bottom: 60px;
+
+    form {
+      margin: 0 20px;
+      display: flex;
+      justify-content: space-between;
+
+      input[type='text'] {
+        flex-grow: 1;
+        margin-right: 40px;
+      }
+
+      input[type='submit'] {
+        min-width: 160px;
+      }
+    }
+  }
+
+  .lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: -20px;
+
+    &__list {
+      $square-side: 160px;
+
+      font-family: $font-family-sans-serif;
+      color: $color-mine-shaft;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: $square-side;
+      width: $square-side;
+      height: $square-side;
+      margin: 20px;
+      cursor: pointer;
+      background-color: rgba(255,255,255,.9);
+      border-radius: 3px;
+      transition: .3s all;
+
+      &:hover {
+        background-color: rgba(255,255,255,.8);
+        box-shadow: 0 0 5px 5px $color-white;
+        text-shadow: 0 0 5px $color-black;
+        color: $color-white;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

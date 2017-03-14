@@ -1,6 +1,6 @@
 import React from 'react'
 import { browserHistory, Link } from 'react-router'
-import Auth from '../auth/Auth'
+import Auth from '../services/Auth'
 
 const Login = React.createClass({
   getInitialState () {
