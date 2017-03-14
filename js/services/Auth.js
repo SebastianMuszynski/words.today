@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { AUTH, USER } from './_constants'
+import { AUTH } from './_constants'
 
 const Auth = {
   requestAPI: function (method, url, data) {
