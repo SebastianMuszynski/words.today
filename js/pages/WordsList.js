@@ -59,7 +59,7 @@ const WordsList = React.createClass({
           </div>
           { this.state.words.length ?
             <section>
-              <h1>Your words</h1>
+              <h1>Your words ({this.state.words.length})</h1>
               <div className='words'>
                 { this.state.words.map((word) => {
                   return (
