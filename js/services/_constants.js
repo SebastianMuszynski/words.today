@@ -43,3 +43,18 @@ export const WORD = {
     }
   }
 }
+
+export const TRANSLATION = {
+  GET_ALL: {
+    METHOD: 'GET',
+    URL: function (listId, wordId) {
+      return `${API_HOST}/lists/${listId}/words/${wordId}/translations`
+    }
+  },
+  CREATE: {
+    METHOD: 'POST',
+    URL: function (listId, wordId) {
+      return `${API_HOST}/lists/${listId}/words/${wordId}/translations`
+    }
+  }
+}
