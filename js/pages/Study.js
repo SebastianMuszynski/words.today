@@ -64,7 +64,7 @@ const Study = React.createClass({
           { this.state.lists.length ?
             (
               <section>
-                <h1>Your lists</h1>
+                <h1>Your lists ({this.state.lists.length})</h1>
                 <div className='lists'>
                   { this.state.lists.map((list) => {
                     return (
