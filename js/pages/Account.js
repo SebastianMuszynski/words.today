@@ -1,7 +1,5 @@
 import React from 'react'
-import Auth from '../services/Auth'
 import User from '../services/User'
-import axios from 'axios'
 import '../../css/Account'
 
 const Account = React.createClass({
