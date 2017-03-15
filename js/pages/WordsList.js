@@ -86,7 +86,7 @@ const WordsList = React.createClass({
               <div className='words'>
                 { this.state.words.map((word, index) => {
                   return (
-                    <div className='words__word' key={word.id}>{index+1}. {word.name}</div>
+                    <div className='words__word' key={word.id}>{word.name}</div>
                   )
                 })}
               </div>
