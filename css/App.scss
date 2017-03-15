@@ -8,8 +8,10 @@ body {
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: $header-height auto;
+  background-color: rgba(0,0,0,.7);
+  padding: 30px 50px;
 }
 
 h1 {
