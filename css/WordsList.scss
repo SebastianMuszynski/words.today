@@ -10,6 +10,25 @@
   z-index: -1;
   overflow-y: scroll;
 
+  .stats-number {
+    $radius: 42px;
+
+    background-color: $color-white;
+    color: $color-bittersweet;
+    border-radius: $radius;
+    height: $radius;
+    width: $radius;
+    line-height: $radius;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: $font-family-sans-serif-words;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0 12px;
+  }
+
   .add-word {
     margin-bottom: 60px;
 

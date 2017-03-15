@@ -82,7 +82,11 @@ const WordsList = React.createClass({
           </div>
           { this.state.words.length ?
             <section>
-              <h1>Your words ({this.state.words.length})</h1>
+              <h1>
+                You have
+                <span className='stats-number'>{this.state.words.length}</span>
+                {this.state.words.length == 1 ? 'word' : 'words'}
+              </h1>
               <div className='words'>
                 { this.state.words.map((word, index) => {
                   return (
