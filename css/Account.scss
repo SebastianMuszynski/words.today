@@ -1,7 +1,7 @@
 @import 'common';
 
 .Account {
-  @include background-picture("../img/pic-elephant-high.jpg");
+  @include background-picture("../img/pic-narrative-high.jpg");
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -13,7 +13,8 @@
   .container {
     max-width: 800px;
     margin: $header-height auto;
-    background-color: rgba(0,0,0,.4);
+    box-shadow: 0 0 30px $color-black;
+    background-color: rgba(255,255,255,.9);
     padding: 30px 50px;
   }
 

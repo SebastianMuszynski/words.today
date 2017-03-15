@@ -1,32 +1,43 @@
 @import 'common';
 
 .Home {
-  @include background-picture("../img/pic-children-high.jpg");
+  @include background-picture("../img/pic-narrative-high.jpg");
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .info {
-    background-color: rgba(0,0,0,.7);
-    padding: 30px 0 25px;
-    text-shadow: 0 0 5px $color-black;
-    color: $color-white;
-    width: 100%;
-    margin: $header-height auto 0;
+    background-color: rgba(255,255,255,.9);
+    height: 400px;
+    width: 400px;
+    border-radius: 400px;
+    color: $color-mine-shaft;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: FadeIn-Circle 1s forwards;
+
+    @keyframes FadeIn-Circle {
+      to {
+        box-shadow: 0 0 30px 2px $color-black;
+      }
+    }
 
     h2 {
+      font-size: 40px;
+      line-height: 60px;
       text-align: center;
-      animation: FadeIn-Text 2s forwards;
+      opacity: 0;
+      animation: FadeIn-Text 1s forwards;
     }
 
     @keyframes FadeIn-Text {
-      from {
-        opacity: 0;
-        margin-left: -120px;
-      }
       to {
         opacity: 1;
       }

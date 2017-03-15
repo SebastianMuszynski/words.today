@@ -15,9 +15,8 @@ body {
 h1 {
   font-size: 250%;
   line-height: 1.2;
-  color: $color-white;
+  color: $color-mine-shaft;
   margin: 30px 20px;
-  text-shadow: 0 0 5px $color-black;
   border-bottom: 3px solid $color-bright-sun;
 }
 
@@ -58,6 +57,7 @@ input {
 }
 
 input:not([type="submit"]) {
+  border: 2px solid $color-gallery;
   color: $color-mine-shaft;
 }
 
