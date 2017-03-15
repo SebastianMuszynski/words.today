@@ -13,33 +13,41 @@
   justify-content: center;
 
   .info {
-    background-color: rgba(255,255,255,.9);
-    height: 400px;
-    width: 400px;
-    border-radius: 400px;
-    color: $color-mine-shaft;
+    $radius-before: 400px;
+    $radius-after: 450px;
+
+    background-color: rgba(0,0,0,.8);
+    height: $radius-before;
+    width: $radius-before;
+    border-radius: $radius-before;
+    color: $color-white;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: FadeIn-Circle 1s forwards;
-
-    @keyframes FadeIn-Circle {
-      to {
-        box-shadow: 0 0 30px 2px $color-black;
-      }
-    }
 
     h2 {
       font-size: 40px;
       line-height: 60px;
       text-align: center;
       opacity: 0;
-      animation: FadeIn-Text 1s forwards;
+      position: relative;
+      animation: FadeIn-Text 2s forwards;
     }
 
     @keyframes FadeIn-Text {
-      to {
+      10% {
+        opacity: 0;
+      }
+      40% {
         opacity: 1;
+      }
+      60% {
+        top: 0;
+      }
+      100% {
+        opacity: 1;
+        top: -15px;
       }
     }
 
@@ -50,6 +58,35 @@
     p {
       padding: 10px 0;
       text-align: justify;
+    }
+
+    .auth-links {
+      position: relative;
+      width: 190px;
+      font-size: 22px;
+      bottom: -15px;
+      display: flex;
+      justify-content: space-between;
+      opacity: 0;
+      animation: FadeIn-Links 1s forwards 1s;
+
+      a {
+        color: $color-white;
+        font-family: $font-family-sans-serif;
+
+        &:hover {
+          color: $color-silver-chalice;
+        }
+      }
+    }
+
+    @keyframes FadeIn-Links {
+      60% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
 }
