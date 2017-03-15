@@ -6,7 +6,10 @@ const WordsList = React.createClass({
   getInitialState () {
     return {
       fields: {
-        newWord: ''
+        word: '',
+        translations: [
+          { name: '' }
+        ]
       },
       isFormValid: false,
       words: []
@@ -25,6 +28,11 @@ const WordsList = React.createClass({
     fields[event.target.name] = event.target.value
     this.setState({ fields: fields, isFormValid: this.isFormValid() })
   },
+  onTranslationChange (event) {
+    let fields = this.state.fields
+    fields.translations[0].name = event.target.value
+    this.setState({ fields: fields, isFormValid: this.isFormValid() })
+  },
   isFormValid () {
     let fields = this.state.fields
     return Object.keys(fields).every((key) => !!fields[key])
@@ -33,7 +41,10 @@ const WordsList = React.createClass({
     event.preventDefault()
     let data = {
       word: {
-        name: this.state.fields.newWord
+        name: this.state.fields.word,
+        translations_attributes: [
+          { name: this.state.fields.translations[0].name }
+        ]
       }
     }
     this.addWord(data)
@@ -41,7 +52,8 @@ const WordsList = React.createClass({
   addWord (data) {
     Word.create(this.getListId(), data).then((word) => {
       let fields = this.state.fields
-      fields.newWord = ''
+      fields.word = ''
+      fields.translations[0].name = ''
       this.setState({ words: [...this.state.words, word], fields: fields })
     })
   },
@@ -54,10 +66,16 @@ const WordsList = React.createClass({
             <form onSubmit={this.handleSubmit}>
               <input
                 type='text'
-                name='newWord'
-                placeholder='New word'
-                value={this.state.fields.newWord}
+                name='word'
+                placeholder='Word'
+                value={this.state.fields.word}
                 onChange={this.onInputChange}
+              />
+              <input
+                type='text'
+                placeholder='Translation'
+                value={this.state.fields.translations[0].name}
+                onChange={this.onTranslationChange}
               />
               <input type='submit' />
             </form>
