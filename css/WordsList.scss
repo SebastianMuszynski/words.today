@@ -46,6 +46,16 @@
       cursor: pointer;
       border-radius: 3px;
       border-top: 1px solid $color-gallery;
+      display: flex;
+      justify-content: space-between;
+
+      &--name {
+        font-weight: 600;
+      }
+
+      &--translation {
+        color: $color-silver-chalice;
+      }
 
       &:first-child {
         border-top: none;
