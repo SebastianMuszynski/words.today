@@ -38,24 +38,27 @@
     &__list {
       $square-side: 120px;
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: $font-family-sans-serif;
+      line-height: 1.5;
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 2px;
-      background-color: $color-bright-sun;
       color: $color-mine-shaft;
-      line-height: $square-side;
       width: $square-side;
       height: $square-side;
       margin: 20px;
       cursor: pointer;
+      background-color: $color-bright-sun;
+      border: 3px solid $color-bright-sun;
       border-radius: 3px;
       transition: .3s all;
 
       &:hover {
-        text-shadow: 0 0 5px $color-black;
-        color: $color-white;
-        letter-spacing: 1px;
+        color: $color-bright-sun;
+        background-color: $color-mine-shaft;
       }
     }
   }
