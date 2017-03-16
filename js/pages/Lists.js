@@ -28,7 +28,7 @@ const Lists = React.createClass({
     return Object.keys(fields).every((key) => !!fields[key])
   },
   onListClick (listId) {
-    browserHistory.push('/study/' + listId)
+    browserHistory.push('/lists/' + listId)
   },
   handleSubmit (event) {
     event.preventDefault()
