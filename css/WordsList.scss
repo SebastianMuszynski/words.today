@@ -42,7 +42,6 @@
       transition: .3s all;
       font-family: $font-family-sans-serif-words;
       font-size: 16px;
-      font-weight: 400;
       cursor: pointer;
       border-radius: 3px;
       border-top: 1px solid $color-gallery;
@@ -54,6 +53,7 @@
       }
 
       &--translation {
+        font-weight: 300;
         color: $color-silver-chalice;
       }
 
