@@ -27,6 +27,36 @@
     background-color: $color-bright-sun;
   }
 
+  .fadeIn {
+    transition: .3s all;
+    animation: Anim-FadeIn 1s forwards;
+    opacity: 0;
+
+    @keyframes Anim-FadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+  .fadeOut {
+    transition: .3s all;
+    animation: Anim-FadeOut .5s forwards;
+    opacity: 1;
+
+    @keyframes Anim-FadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  }
+
   .translations {
     color: $color-silver-chalice;
     font-weight: 300;
@@ -66,5 +96,9 @@
     &__translation:first-child {
       border-top: none;
     }
+  }
+
+  .hidden {
+    display: none;
   }
 }

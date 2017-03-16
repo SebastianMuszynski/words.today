@@ -6,7 +6,8 @@ import '../../css/Study'
 const Study = React.createClass({
   getInitialState () {
     return {
-      words: []
+      words: [],
+      currentWordIndex: -1
     }
   },
   getListId () {
@@ -15,7 +16,28 @@ const Study = React.createClass({
   componentDidMount () {
     Word.getAll(this.getListId()).then((words) => {
       this.setState({ words: shuffleArray(words) })
+      this.showNextWord()
     })
+  },
+  showNextWord () {
+    const nextIndex = this.state.currentWordIndex + 1
+    if (nextIndex < this.state.words.length) {
+      if (nextIndex > 0) {
+        setTimeout(() => {
+          this.refs[`word_${nextIndex - 1}`].classList.add('fadeOut')
+          setTimeout(() => {
+            this.refs[`word_${nextIndex - 1}`].classList.add('hidden')
+            this.refs[`word_${nextIndex}`].classList.remove('hidden')
+            this.refs[`word_${nextIndex}`].classList.add('fadeIn')
+            this.setState({ currentWordIndex: nextIndex })
+          }, 500)
+        }, 500)
+      } else {
+        this.refs[`word_${nextIndex}`].classList.remove('hidden')
+        this.refs[`word_${nextIndex}`].classList.add('fadeIn')
+        this.setState({ currentWordIndex: nextIndex })
+      }
+    }
   },
   getWordAnswerRef (wordIndex, answerIndex) {
     return `word_${wordIndex}_answer_${answerIndex}`
@@ -56,6 +78,7 @@ const Study = React.createClass({
       isCorrect = !!(translations[i].name == answer)
     }
     this.highlightAnswer(isCorrect, wordIndex, answerIndex)
+    isCorrect && setTimeout(() => this.showNextWord(), 500)
   },
   highlightAnswer (isCorrect, wordIndex, answerIndex) {
     const ref = this.getWordAnswerRef(wordIndex, answerIndex)
@@ -69,8 +92,9 @@ const Study = React.createClass({
           <div>
             <div>
               {this.state.words.map((word, index) => {
+                const ref = `word_${index}`
                 return (
-                  <div key={word.name}>
+                  <div key={word.name} ref={ref} className='hidden'>
                     <div className='word'>
                       {word.name}
                     </div>
