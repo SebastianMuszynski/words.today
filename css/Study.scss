@@ -41,11 +41,24 @@
       border-top: 1px solid $color-gallery;
       padding: 25px 20px;
       cursor: pointer;
+      transition: .3s background-color;
 
       &:hover {
         background-color: $color-gallery;
         color: $color-mine-shaft;
-        font-weight: 400;
+      }
+
+      &.correct,
+      &.incorrect {
+        color: $color-white;
+      }
+
+      &.correct {
+        background-color: #AACD6E;
+      }
+
+      &.incorrect {
+        background-color: #EC7357;
       }
     }
 
