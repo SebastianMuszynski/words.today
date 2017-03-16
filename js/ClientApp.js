@@ -5,8 +5,8 @@ import App from './layout/App'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
-import Study from './pages/Study'
-import WordsList from './pages/WordsList'
+import Lists from './pages/Lists'
+import Words from './pages/Words'
 import Account from './pages/Account'
 
 render((
@@ -15,8 +15,8 @@ render((
       <IndexRoute component={Home} />
       <Route path="login" component={Login} />
       <Route path="signup" component={SignUp} />
-      <Route path="study" component={Study} />
-      <Route path="study/:id" component={WordsList} />
+      <Route path="lists" component={Lists} />
+      <Route path="lists/:id" component={Words} />
       <Route path="account" component={Account} />
     </Route>
   </Router>

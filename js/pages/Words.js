@@ -1,8 +1,8 @@
 import React from 'react'
 import Word from '../services/Word'
-import '../../css/WordsList'
+import '../../css/Words'
 
-const WordsList = React.createClass({
+const Words = React.createClass({
   getInitialState () {
     return {
       fields: {
@@ -59,7 +59,7 @@ const WordsList = React.createClass({
   },
   render () {
     return (
-      <div className='WordsList'>
+      <div className='WordsPage'>
         <div className='container'>
           <h1>Add new word</h1>
           <div className='add-word'>
@@ -111,4 +111,4 @@ const WordsList = React.createClass({
   }
 })
 
-export default WordsList
+export default Words

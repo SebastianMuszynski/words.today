@@ -12,7 +12,7 @@ const Home = React.createClass({
           { Auth.isLoggedIn() ?
             (
               <div className='auth-links'>
-                <Link to='/study'>Study</Link>
+                <Link to='/lists'>Lists</Link>
                 <Link to='/account'>Account</Link>
               </div>
             )
