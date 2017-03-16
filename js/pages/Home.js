@@ -6,7 +6,7 @@ import '../../css/Home'
 const Home = React.createClass({
   render () {
     return (
-      <div className='Home'>
+      <div className='HomePage'>
         <section className='info'>
           <h2>LEARN NEW<br/> <span>WORDS.TODAY</span></h2>
           { Auth.isLoggedIn() ?

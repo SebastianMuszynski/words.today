@@ -15,7 +15,7 @@ const Account = React.createClass({
   },
   render () {
     return (
-      <div className='Account'>
+      <div className='AccountPage'>
         <div className='container'>
           <h1>Your account</h1>
           <div className='user-info'>
