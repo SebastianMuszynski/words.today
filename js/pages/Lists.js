@@ -1,9 +1,9 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
 import List from '../services/List'
-import '../../css/Study'
+import '../../css/Lists'
 
-const Study = React.createClass({
+const Lists = React.createClass({
   getInitialState () {
     return {
       fields: {
@@ -48,7 +48,7 @@ const Study = React.createClass({
   },
   render () {
     return (
-      <div className='Study'>
+      <div className='ListsPage'>
         <div className='container'>
           <h1>Create new list</h1>
           <div className='create-list'>
@@ -95,4 +95,4 @@ const Study = React.createClass({
   }
 })
 
-export default Study
+export default Lists
