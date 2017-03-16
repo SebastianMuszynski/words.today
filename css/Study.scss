@@ -9,4 +9,49 @@
   left: 0;
   z-index: -1;
   overflow-y: scroll;
+
+  .word,
+  .translations {
+    font-size: 26px;
+    margin: 20px;
+    font-family: $font-family-sans-serif-words;
+    background-color: $color-white;
+  }
+
+  .word {
+    font-weight: 600;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .translations {
+    color: $color-silver-chalice;
+    font-weight: 300;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &__translation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid $color-gallery;
+      padding: 25px 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-gallery;
+        color: $color-mine-shaft;
+        font-weight: 400;
+      }
+    }
+
+    &__translation:first-child {
+      border-top: none;
+    }
+
+  }
 }
