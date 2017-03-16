@@ -12,7 +12,7 @@
 
   .word,
   .translations {
-    font-size: 26px;
+    font-size: 22px;
     margin: 20px;
     font-family: $font-family-sans-serif-words;
     background-color: $color-white;
@@ -24,6 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: $color-bright-sun;
   }
 
   .translations {
