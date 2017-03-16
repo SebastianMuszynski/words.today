@@ -54,17 +54,16 @@
       }
 
       &.correct {
-        background-color: #AACD6E;
+        background-color: $color-answer-correct;
       }
 
       &.incorrect {
-        background-color: #EC7357;
+        background-color: $color-answer-incorrect;
       }
     }
 
     &__translation:first-child {
       border-top: none;
     }
-
   }
 }
