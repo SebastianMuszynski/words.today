@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Lists from './pages/Lists'
 import Words from './pages/Words'
+import Study from './pages/Study'
 import Account from './pages/Account'
 
 render((
@@ -17,6 +18,7 @@ render((
       <Route path="signup" component={SignUp} />
       <Route path="lists" component={Lists} />
       <Route path="lists/:id" component={Words} />
+      <Route path="lists/:id/study" component={Study} />
       <Route path="account" component={Account} />
     </Route>
   </Router>

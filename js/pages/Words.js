@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 import Word from '../services/Word'
 import '../../css/Words'
 
@@ -57,6 +58,9 @@ const Words = React.createClass({
       this.setState({ words: [...this.state.words, word], fields: fields })
     })
   },
+  handleStudyBtn () {
+    browserHistory.push(`/lists/${this.getListId()}/study`)
+  },
   render () {
     return (
       <div className='WordsPage'>
@@ -82,11 +86,14 @@ const Words = React.createClass({
           </div>
           { this.state.words.length ?
             <section>
-              <h1>
-                You have
-                <span className='stats-number'>{this.state.words.length}</span>
-                {this.state.words.length == 1 ? 'word' : 'words'}
-              </h1>
+              <div className='heading'>
+                <h1>
+                  You have
+                  <span className='stats-number'>{this.state.words.length}</span>
+                  {this.state.words.length == 1 ? 'word' : 'words'}
+                </h1>
+                <button className='btn-study' onClick={this.handleStudyBtn}>Study</button>
+              </div>
               <div className='words'>
                 { this.state.words.map((word, index) => {
                   return (

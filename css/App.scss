@@ -60,6 +60,7 @@ a {
   }
 }
 
+button,
 input {
   font-family: $font-family-serif;
   font-size: $font-size;
@@ -82,7 +83,9 @@ input:not([type="submit"]) {
   color: $color-mine-shaft;
 }
 
+button,
 input[type="submit"] {
+  border: none;
   background: none;
   background-color: $color-burnt-sienna;
   color: $color-white;

@@ -10,6 +10,35 @@
   z-index: -1;
   overflow-y: scroll;
 
+  .heading {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      width: 100%;
+    }
+
+    button {
+      $radius: 100px;
+
+      background-color: $color-bright-sun;
+      width: $radius;
+      height: $radius;
+      border-radius: $radius;
+      padding: 0;
+      flex-shrink: 0;
+      margin-right: 20px;
+      color: $color-mine-shaft;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px 2px $color-bright-sun;
+      font-size: 18px;
+
+      &:hover {
+        box-shadow: 0 0 10px 2px $color-black;
+      }
+    }
+  }
+
   .add-word {
     margin-bottom: 60px;
 
