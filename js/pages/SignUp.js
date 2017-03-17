@@ -54,7 +54,7 @@ const SignUp = React.createClass({
   },
   render () {
     return (
-      <div className='AuthFormPage'>
+      <div className='AuthForm'>
         <div className='AuthForm__form'>
           <h2>Sign up</h2>
           <form onSubmit={this.handleSubmit}>
