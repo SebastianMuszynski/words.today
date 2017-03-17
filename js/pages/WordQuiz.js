@@ -10,31 +10,33 @@ const WordQuiz = React.createClass({
   getInitialState () {
     return {
       words: shuffleArray(this.props.words),
-      currentWordIndex: -1
+      activeWordIndex: null
     }
   },
   componentDidMount () {
-    this.showNextWord()
+    this.showWord()
   },
-  showNextWord () {
-    const nextIndex = this.state.currentWordIndex + 1
-    if (nextIndex < this.state.words.length) {
-      if (nextIndex > 0) {
-        setTimeout(() => {
-          this.refs[`word_${nextIndex - 1}`].classList.add('fadeOut')
-          setTimeout(() => {
-            this.refs[`word_${nextIndex - 1}`].classList.add('hidden')
-            this.refs[`word_${nextIndex}`].classList.remove('hidden')
-            this.refs[`word_${nextIndex}`].classList.add('fadeIn')
-            this.setState({ currentWordIndex: nextIndex })
-          }, 500)
-        }, 500)
-      } else {
-        this.refs[`word_${nextIndex}`].classList.remove('hidden')
-        this.refs[`word_${nextIndex}`].classList.add('fadeIn')
-        this.setState({ currentWordIndex: nextIndex })
-      }
+  showWord (index = 0) {
+    const el = this.refs[`word_${index}`]
+    if (el) {
+      el.classList.remove('hidden')
+      el.classList.add('fadeIn')
+      this.setState({ activeWordIndex: index })
     }
+  },
+  hideWord (index, callback) {
+    const el = this.refs[`word_${index}`]
+    setTimeout(() => {
+      el.classList.add('fadeOut')
+      setTimeout(() => {
+        el.classList.add('hidden')
+        callback && callback()
+      }, 500)
+    }, 500)
+  },
+  changeWords () {
+    let activeIndex = this.state.activeWordIndex || 0
+    this.hideWord(activeIndex, this.showWord.bind(this, activeIndex + 1))
   },
   getWordAnswerRef (wordIndex, answerIndex) {
     return `word_${wordIndex}_answer_${answerIndex}`
@@ -75,7 +77,7 @@ const WordQuiz = React.createClass({
       isCorrect = !!(translations[i].name == answer)
     }
     this.highlightAnswer(isCorrect, wordIndex, answerIndex)
-    isCorrect && setTimeout(() => this.showNextWord(), 500)
+    isCorrect && setTimeout(() => this.changeWords(), 500)
   },
   highlightAnswer (isCorrect, wordIndex, answerIndex) {
     const ref = this.getWordAnswerRef(wordIndex, answerIndex)
