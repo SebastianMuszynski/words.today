@@ -1,0 +1,95 @@
+@import 'common';
+
+.WordQuiz {
+  .word,
+  .translations {
+    font-size: 22px;
+    margin: 20px;
+    font-family: $font-family-sans-serif-words;
+    background-color: $color-white;
+  }
+
+  .word {
+    font-weight: 600;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-bright-sun;
+  }
+
+  .fadeIn {
+    transition: .3s all;
+    animation: Anim-FadeIn 1s forwards;
+    opacity: 0;
+
+    @keyframes Anim-FadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+  .fadeOut {
+    transition: .3s all;
+    animation: Anim-FadeOut .5s forwards;
+    opacity: 1;
+
+    @keyframes Anim-FadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  }
+
+  .translations {
+    color: $color-silver-chalice;
+    font-weight: 300;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &__translation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid $color-gallery;
+      padding: 25px 20px;
+      cursor: pointer;
+      transition: .3s background-color;
+
+      &:hover {
+        background-color: $color-gallery;
+        color: $color-mine-shaft;
+      }
+
+      &.correct,
+      &.incorrect {
+        color: $color-white;
+      }
+
+      &.correct {
+        background-color: $color-answer-correct;
+      }
+
+      &.incorrect {
+        background-color: $color-answer-incorrect;
+      }
+    }
+
+    &__translation:first-child {
+      border-top: none;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}
