@@ -20,6 +20,7 @@ const Words = React.createClass({
     return this.props.params.id
   },
   componentDidMount () {
+    this.refs.word.focus()
     Word.getAll(this.getListId()).then((words) => {
       this.setState({ words: words })
     })
@@ -55,6 +56,7 @@ const Words = React.createClass({
       let fields = this.state.fields
       fields.word = ''
       fields.translations[0].name = ''
+      this.refs.word.focus()
       this.setState({ words: [...this.state.words, word], fields: fields })
     })
   },
@@ -71,6 +73,7 @@ const Words = React.createClass({
               <input
                 type='text'
                 name='word'
+                ref='word'
                 placeholder='Word'
                 value={this.state.fields.word}
                 onChange={this.onInputChange}

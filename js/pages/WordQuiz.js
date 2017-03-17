@@ -9,8 +9,7 @@ const WordQuiz = React.createClass({
   },
   getInitialState () {
     return {
-      words: shuffleArray(this.props.words),
-      activeWordIndex: null
+      words: shuffleArray(this.props.words)
     }
   },
   componentDidMount () {
@@ -21,8 +20,8 @@ const WordQuiz = React.createClass({
     if (el) {
       el.classList.remove('hidden')
       el.classList.add('fadeIn')
-      this.setState({ activeWordIndex: index })
     }
+    this.setState({ activeWordIndex: index })
   },
   hideWord (index, callback) {
     const el = this.refs[`word_${index}`]
@@ -83,20 +82,31 @@ const WordQuiz = React.createClass({
     const ref = this.getWordAnswerRef(wordIndex, answerIndex)
     this.refs[ref].classList.add(isCorrect ? 'correct' : 'incorrect')
   },
+  canShowResults () {
+    return this.state.words.length <= this.state.activeWordIndex
+  },
   render () {
     return (
       <div className='WordQuiz'>
-        {this.state.words.map((word, index) => {
-          const ref = `word_${index}`
-          return (
-            <div key={word.name} ref={ref} className='hidden'>
-              <div className='word'>
-                {word.name}
-              </div>
-              {this.generateAnswers(index)}
-            </div>
-          )
-        })}
+        { this.canShowResults() ?
+          <div className='results'>
+            <p>Nice job!</p>
+          </div>
+          :
+          <div>
+            {this.state.words.map((word, index) => {
+              const ref = `word_${index}`
+              return (
+                <div key={word.name} ref={ref} className='hidden'>
+                  <div className='word'>
+                    {word.name}
+                  </div>
+                  {this.generateAnswers(index)}
+                </div>
+              )
+            })}
+          </div>
+        }
       </div>
     )
   }
