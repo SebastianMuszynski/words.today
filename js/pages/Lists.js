@@ -63,7 +63,7 @@ const Lists = React.createClass({
               <input type='submit' />
             </form>
           </div>
-          { this.state.lists.length ?
+          { this.state.lists.length &&
             (
               <section>
                 <h1>
@@ -86,8 +86,6 @@ const Lists = React.createClass({
                 </div>
               </section>
             )
-            :
-            null
           }
         </div>
       </div>

@@ -19,10 +19,8 @@ const Study = React.createClass({
       <div className='StudyPage'>
         <div className='container'>
           <h1>Study</h1>
-          { this.state.words.length ?
+          { this.state.words.length &&
             <WordQuiz words={this.state.words} />
-            :
-            null
           }
         </div>
       </div>

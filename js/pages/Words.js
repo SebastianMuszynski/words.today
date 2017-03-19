@@ -87,7 +87,7 @@ const Words = React.createClass({
               <input type='submit' />
             </form>
           </div>
-          { this.state.words.length ?
+          { this.state.words.length &&
             <section>
               <div className='heading'>
                 <h1>
@@ -112,8 +112,6 @@ const Words = React.createClass({
                 })}
               </div>
             </section>
-            :
-            null
           }
         </div>
       </div>
