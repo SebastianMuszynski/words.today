@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 import List from '../services/List'
 import '../../css/Lists'
@@ -87,6 +88,9 @@ const Lists = React.createClass({
               </section>
             )
           }
+          <div className='bottom-links'>
+            <Link to='/'>↫ Home</Link>
+          </div>
         </div>
       </div>
     )

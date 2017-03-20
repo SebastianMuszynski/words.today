@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 import Word from '../services/Word'
 import '../../css/Words'
@@ -113,6 +114,9 @@ const Words = React.createClass({
               </div>
             </section>
           }
+          <div className='bottom-links'>
+            <Link to='/lists'>↫ Back</Link>
+          </div>
         </div>
       </div>
     )
