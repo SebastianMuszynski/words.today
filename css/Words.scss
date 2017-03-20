@@ -12,8 +12,11 @@
 
   .list-name {
     padding: 20px 0;
-    margin: 15px 20px 60px;
+    margin: -30px 20px 50px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 2px 3px black;
     background-color: $color-bright-sun;
+    letter-spacing: 1px;
     font-size: 24px;
     text-align: center;
     text-transform: uppercase;
