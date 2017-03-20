@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 import Word from '../services/Word'
+import List from '../services/List'
 import '../../css/Words'
 
 const Words = React.createClass({
@@ -14,7 +15,8 @@ const Words = React.createClass({
         ]
       },
       isFormValid: false,
-      words: []
+      words: [],
+      list: {}
     }
   },
   getListId () {
@@ -24,6 +26,9 @@ const Words = React.createClass({
     this.refs.word.focus()
     Word.getAll(this.getListId()).then((words) => {
       this.setState({ words: words })
+    })
+    List.get(this.getListId()).then((list) => {
+      this.setState({ list: list })
     })
   },
   onInputChange (event) {
@@ -68,6 +73,9 @@ const Words = React.createClass({
     return (
       <div className='WordsPage'>
         <div className='container'>
+          <div className='list-name'>
+            { this.state.list.name }
+          </div>
           <h1>Add new word</h1>
           <div className='add-word'>
             <form onSubmit={this.handleSubmit}>

@@ -2,13 +2,19 @@ import Auth from './Auth'
 import { LIST } from './_constants'
 
 const List = {
-  getAll: function () {
+  getAll () {
     return Auth.requestAPI(
       LIST.GET_ALL.METHOD,
       LIST.GET_ALL.URL
     )
   },
-  create: function (data) {
+  get (id) {
+    return Auth.requestAPI(
+      LIST.GET.METHOD,
+      LIST.GET.URL(id)
+    )
+  },
+  create (data) {
     return Auth.requestAPI(
       LIST.CREATE.METHOD,
       LIST.CREATE.URL,

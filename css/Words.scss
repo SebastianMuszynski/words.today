@@ -10,6 +10,16 @@
   z-index: -1;
   overflow-y: scroll;
 
+  .list-name {
+    padding: 20px 0;
+    margin: 15px 20px 60px;
+    background-color: $color-bright-sun;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $font-family-sans-serif;
+  }
+
   .heading {
     display: flex;
     justify-content: space-between;
