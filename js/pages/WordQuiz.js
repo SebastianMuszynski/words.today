@@ -1,5 +1,6 @@
 import React from 'react'
 import Word from '../services/Word'
+import classNames from 'classnames'
 import { shuffleArray } from '../helpers/shuffle'
 import '../../css/WordQuiz'
 
@@ -17,20 +18,14 @@ const WordQuiz = React.createClass({
   },
   showWord (index = 0) {
     const el = this.refs[`word_${index}`]
-    if (el) {
-      el.classList.remove('hidden')
-      el.classList.add('fadeIn')
-    }
+    el && el.classList.add('fadeIn')
     this.setState({ activeWordIndex: index })
   },
   hideWord (index, callback) {
     const el = this.refs[`word_${index}`]
+    el.classList.add('fadeOut')
     setTimeout(() => {
-      el.classList.add('fadeOut')
-      setTimeout(() => {
-        el.classList.add('hidden')
-        callback && callback()
-      }, 500)
+      callback && callback()
     }, 500)
   },
   changeWords () {
@@ -96,8 +91,11 @@ const WordQuiz = React.createClass({
           <div>
             {this.state.words.map((word, index) => {
               const ref = `word_${index}`
+              let quizClasses = classNames({
+                hidden: this.state.activeWordIndex !== index
+              })
               return (
-                <div key={word.name} ref={ref} className='hidden'>
+                <div key={word.name} ref={ref} className={quizClasses}>
                   <div className='word'>
                     {word.name}
                   </div>
