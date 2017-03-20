@@ -1,9 +1,12 @@
 import React from 'react'
 import User from '../services/User'
 import classNames from 'classnames'
+import NotificationSystem from 'react-notification-system'
 import '../../css/Account'
 
 const Account = React.createClass({
+  _notificationSystem: null,
+
   getInitialState () {
     return {
       fields: {
@@ -17,6 +20,8 @@ const Account = React.createClass({
     }
   },
   componentDidMount () {
+    this._notificationSystem = this.refs.notificationSystem
+
     User.getCurrent().then((user) => {
       this.setState({ user: user })
     })
@@ -32,6 +37,13 @@ const Account = React.createClass({
   areFieldsFilled () {
     let fields = this.state.fields
     return Object.keys(fields).every((key) => !!fields[key])
+  },
+  clearForm () {
+    let fields = this.state.fields
+    fields.actualPassword = ''
+    fields.newPassword = ''
+    fields.newPasswordConfirmation = ''
+    this.setState({ fields: fields, isFormValid: this.isFormValid() })
   },
   isFormValid () {
     return this.areFieldsFilled() && this.arePasswordsEqual()
@@ -49,15 +61,24 @@ const Account = React.createClass({
         password: this.state.fields.newPassword
       }
     }
-
     this.updatePassword(data)
   },
   updatePassword (data) {
     User.update(this.state.user.id, data).then((result) => {
-      console.log(result)
       this.setState({ isFormHidden: true })
+      this.clearForm()
+
+      this._notificationSystem.addNotification({
+        level: 'success',
+        message: 'You have a new password now!',
+        position: 'tl',
+      })
     }, (error) => {
-      console.error(error)
+      this._notificationSystem.addNotification({
+        level: 'error',
+        message: 'Something went wrong, try again please.',
+        position: 'tl',
+      })
     })
   },
   render () {
@@ -121,6 +142,7 @@ const Account = React.createClass({
             </form>
           </div>
         </div>
+        <NotificationSystem ref="notificationSystem" />
       </div>
     )
   }
