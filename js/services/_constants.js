@@ -18,7 +18,7 @@ export const USER = {
   },
   UPDATE: {
     METHOD: 'PUT',
-    URL: (userId) => `${API_HOST}/users/${userId}`
+    URL: (id) => `${API_HOST}/users/${id}`
   }
 }
 
@@ -26,6 +26,10 @@ export const LIST = {
   GET_ALL: {
     METHOD: 'GET',
     URL: `${API_HOST}/lists`
+  },
+  GET: {
+    METHOD: 'GET',
+    URL: (id) => `${API_HOST}/lists/${id}`
   },
   CREATE: {
     METHOD: 'POST',
@@ -36,29 +40,21 @@ export const LIST = {
 export const WORD = {
   GET_ALL: {
     METHOD: 'GET',
-    URL: function (listId) {
-      return `${API_HOST}/lists/${listId}/words`
-    }
+    URL: (id) => `${API_HOST}/lists/${id}/words`
   },
   CREATE: {
     METHOD: 'POST',
-    URL: function (listId) {
-      return `${API_HOST}/lists/${listId}/words`
-    }
+    URL: (id) => `${API_HOST}/lists/${id}/words`
   }
 }
 
 export const TRANSLATION = {
   GET_ALL: {
     METHOD: 'GET',
-    URL: function (listId, wordId) {
-      return `${API_HOST}/lists/${listId}/words/${wordId}/translations`
-    }
+    URL: (listId, wordId) => `${API_HOST}/lists/${listId}/words/${wordId}/translations`
   },
   CREATE: {
     METHOD: 'POST',
-    URL: function (listId, wordId) {
-      return `${API_HOST}/lists/${listId}/words/${wordId}/translations`
-    }
+    URL: (listId, wordId) => `${API_HOST}/lists/${listId}/words/${wordId}/translations`
   }
 }
