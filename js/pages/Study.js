@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import Word from '../services/Word'
 import WordQuiz from './WordQuiz'
 import '../../css/Study'
@@ -22,6 +23,9 @@ const Study = React.createClass({
           { this.state.words.length &&
             <WordQuiz words={this.state.words} />
           }
+          <div className='bottom-links'>
+            <Link to={`/lists/${this.props.params.id}`}>↫ Back</Link>
+          </div>
         </div>
       </div>
     )
