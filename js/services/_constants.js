@@ -1,4 +1,6 @@
-export const API_HOST = 'http://localhost:3000'
+import config from '../../config/config'
+
+export const API_HOST = config.api_url
 
 export const AUTH = {
   AUTHENTICATE: {
