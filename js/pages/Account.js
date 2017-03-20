@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import User from '../services/User'
 import classNames from 'classnames'
 import NotificationSystem from 'react-notification-system'
@@ -140,6 +141,9 @@ const Account = React.createClass({
                 disabled={!this.state.isFormValid}
               />
             </form>
+          </div>
+          <div className='bottom-links'>
+            <Link to='/'>↫ Home</Link>
           </div>
         </div>
         <NotificationSystem ref="notificationSystem" />
