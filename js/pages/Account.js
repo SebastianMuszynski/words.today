@@ -94,7 +94,7 @@ const Account = React.createClass({
             <div className='user-info__label'>Email address</div>
             <div className='user-info__value'>{ this.state.user.email }</div>
           </div>
-          <div className='user-info centered'>
+          <div className='user-info options'>
             <button
               onClick={this.showPasswordForm}
               className={classNames({
