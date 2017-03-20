@@ -19,9 +19,10 @@
     }
 
     button {
-      $radius: 90px;
+      $radius: 88px;
 
       background-color: $color-bright-sun;
+      border: 2px solid $color-bright-sun;
       width: $radius;
       height: $radius;
       border-radius: $radius;
@@ -31,11 +32,11 @@
       margin: 0 40px 10px 10px;
       color: $color-mine-shaft;
       text-transform: uppercase;
-      box-shadow: 0 0 15px 1px $color-bright-sun;
       font-size: 18px;
 
       &:hover {
-        box-shadow: 0 0 15px 0px $color-black;
+        background-color: $color-mine-shaft;
+        color: $color-bright-sun;
       }
     }
   }
