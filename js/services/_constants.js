@@ -15,6 +15,10 @@ export const USER = {
   CREATE: {
     METHOD: 'POST',
     URL: `${API_HOST}/users`
+  },
+  UPDATE: {
+    METHOD: 'PUT',
+    URL: (userId) => `${API_HOST}/users/${userId}`
   }
 }
 

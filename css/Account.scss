@@ -40,4 +40,24 @@
       flex-grow: 1;
     }
   }
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .password-form {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+
+    input {
+      margin: 5px;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
 }
