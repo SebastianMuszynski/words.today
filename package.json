@@ -2,7 +2,7 @@
   "name": "smuszynski",
   "version": "0.1.0",
   "description": "Expand your vocabulary with ease!",
-  "main": "index.js",
+  "main": "js/index.js",
   "repository": {},
   "author": "Sebastian Muszynski",
   "license": "MIT",
@@ -38,6 +38,7 @@
     "webpack": "^2.2.1"
   },
   "devDependencies": {
+    "dotenv": "^4.0.0",
     "webpack-dev-server": "^2.3.0"
   }
 }
