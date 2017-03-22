@@ -2,6 +2,7 @@ import React from 'react'
 import { browserHistory, Link } from 'react-router'
 import Auth from '../services/Auth'
 import User from '../services/User'
+import '../../css/Form'
 
 const SignUp = React.createClass({
   getInitialState () {
@@ -55,48 +56,50 @@ const SignUp = React.createClass({
   render () {
     return (
       <div className='AuthForm'>
-        <div className='AuthForm__form'>
-          <h2>Sign up</h2>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              name="username"
-              type="text"
-              placeholder="Username"
-              value={this.state.fields.username}
-              onChange={this.onInputChange}
-            />
-            <input
-              name="email"
-              type="text"
-              placeholder="E-mail"
-              value={this.state.fields.email}
-              onChange={this.onInputChange}
-            />
-            <input
-              name="password"
-              ref="password"
-              type="password"
-              placeholder="Password"
-              value={this.state.fields.password}
-              onChange={this.onInputChange}
-            />
-            <input
-              name="passwordConfirmation"
-              ref="passwordConfirmation"
-              type="password"
-              placeholder="Password confirmation"
-              value={this.state.fields.passwordConfirmation}
-              onChange={this.onInputChange}
-            />
-            <input
-              type="submit"
-              value="SIGN UP"
-              disabled={!this.state.isFormValid}
-            />
-          </form>
-          <div className='AuthForm__links'>
-            <Link to='/'>↫ Home</Link>
-            <Link to='/login'>Log in</Link>
+        <div className='AuthForm__container'>
+          <div className='AuthForm__form'>
+            <h2>Sign up</h2>
+            <form onSubmit={this.handleSubmit}>
+              <input
+                name="username"
+                type="text"
+                placeholder="Username"
+                value={this.state.fields.username}
+                onChange={this.onInputChange}
+              />
+              <input
+                name="email"
+                type="text"
+                placeholder="E-mail"
+                value={this.state.fields.email}
+                onChange={this.onInputChange}
+              />
+              <input
+                name="password"
+                ref="password"
+                type="password"
+                placeholder="Password"
+                value={this.state.fields.password}
+                onChange={this.onInputChange}
+              />
+              <input
+                name="passwordConfirmation"
+                ref="passwordConfirmation"
+                type="password"
+                placeholder="Password confirmation"
+                value={this.state.fields.passwordConfirmation}
+                onChange={this.onInputChange}
+              />
+              <input
+                type="submit"
+                value="SIGN UP"
+                disabled={!this.state.isFormValid}
+              />
+            </form>
+            <div className='AuthForm__links'>
+              <Link to='/'>↫ Home</Link>
+              <Link to='/login'>Log in</Link>
+            </div>
           </div>
         </div>
       </div>

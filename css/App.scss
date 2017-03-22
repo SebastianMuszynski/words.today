@@ -73,6 +73,7 @@ input {
   border-radius: 5px;
   padding: 10px 15px;
   color: $color-blue-dianne;
+  box-sizing: border-box;
 
   &:focus {
     background-color: $color-chilean-heath;
