@@ -1,5 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import App from './layout/App'
 import Home from './pages/Home'
@@ -9,17 +11,22 @@ import Lists from './pages/Lists'
 import Words from './pages/Words'
 import Study from './pages/Study'
 import Account from './pages/Account'
+import app from './reducers/index'
+
+let store = createStore(app)
 
 render((
-  <Router history={browserHistory}>
-    <Route path="/" component={App} >
-      <IndexRoute component={Home} />
-      <Route path="login" component={Login} />
-      <Route path="signup" component={SignUp} />
-      <Route path="lists" component={Lists} />
-      <Route path="lists/:id" component={Words} />
-      <Route path="lists/:id/study" component={Study} />
-      <Route path="account" component={Account} />
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App} >
+        <IndexRoute component={Home} />
+        <Route path="login" component={Login} />
+        <Route path="signup" component={SignUp} />
+        <Route path="lists" component={Lists} />
+        <Route path="lists/:id" component={Words} />
+        <Route path="lists/:id/study" component={Study} />
+        <Route path="account" component={Account} />
+      </Route>
+    </Router>
+  </Provider>
 ), document.getElementById('app'))
