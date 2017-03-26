@@ -1,5 +1,4 @@
 import React from 'react'
-import Word from '../services/Word'
 import classNames from 'classnames'
 import { shuffleArray } from '../helpers/shuffle'
 import '../../css/WordQuiz'
