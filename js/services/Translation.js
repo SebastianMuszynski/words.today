@@ -1,5 +1,5 @@
 import Auth from './Auth'
-import { TRANSLATION } from './_constants'
+import { TRANSLATION } from '../constants'
 
 const Translation = {
   getAll: function (listId, wordId) {

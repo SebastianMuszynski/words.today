@@ -1,5 +1,5 @@
 import Auth from './Auth'
-import { LIST } from './_constants'
+import { LIST } from '../constants'
 
 const List = {
   getAll () {

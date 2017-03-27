@@ -1,5 +1,5 @@
 import Auth from './Auth'
-import { USER } from './_constants'
+import { USER } from '../constants'
 
 const User = {
   getCurrent () {
