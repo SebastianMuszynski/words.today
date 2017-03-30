@@ -62,4 +62,6 @@ export const TRANSLATION = {
 /*
  * Redux
  */
-export const ADD_WORD = 'ADD_WORD'
+export const FETCH_WORDS_REQUEST = 'FETCH_WORDS_REQUEST'
+export const FETCH_WORDS_SUCCESS = 'FETCH_WORDS_SUCCESS'
+export const FETCH_WORDS_FAILURE = 'FETCH_WORDS_FAILURE'

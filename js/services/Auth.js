@@ -10,8 +10,6 @@ const Auth = {
       headers: {
         Authorization: this.getToken()
       }
-    }).then((result) => {
-      return result.data
     })
   },
   login: function(data) {

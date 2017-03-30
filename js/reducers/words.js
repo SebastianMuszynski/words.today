@@ -1,12 +1,16 @@
-import { ADD_WORD } from '../constants'
+import { FETCH_WORDS_SUCCESS } from '../constants'
 
-const words = (state = [], action) => {
+const initialState = {
+  words: []
+}
+
+const words = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_WORD:
-      return [
-        ...state,
-        action.word
-      ]
+    case FETCH_WORDS_SUCCESS: {
+      console.log(action)
+      const words = action.data
+      return { ...state, words }
+    }
     default:
       return state
   }
