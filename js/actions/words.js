@@ -13,6 +13,6 @@ export const fetchWordsSuccess = (listId, response) => (
 )
 
 export const fetchWordsFailure = (listId, error) => (
-  { type: FETCH_WORDS_FAILURE, payload, error }
+  { type: FETCH_WORDS_FAILURE, listId, error }
 )
 
